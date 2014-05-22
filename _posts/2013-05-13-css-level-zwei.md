@@ -2,13 +2,12 @@
 
 layout: post
 title: "CSS: Level Zwei"
-abstract: 'Alle kennen das gute, alte CSS. Endlose Zeilen voller Styles die in allen Browsern zu unterschiedlichen Resultaten führen. Dieser Artikel beschreibt nicht wie man dieses Problem in den Griff bekommt, sondern wie man heute mit CSS arbeitet.
-
+abstract: 'Alle kennen das gute, alte CSS. Endlose Zeilen voller Styles die in allen Browsern zu unterschiedlichen Resultaten führen. Dieser Artikel beschreibt nicht wie man dieses Problem in den Griff bekommt, sondern wie man heute mit CSS arbeitet.
 Das Emmet Plugin zusammen mit dem Sass Compiler hebt die Arbeit mit CSS auf ein neues Level: Level Zwei!
 
 '
 categories: CSS, Sublime
-background: lady
+redirect_from: "2013/05/13/css-level-zwei/"
 
 ---
 

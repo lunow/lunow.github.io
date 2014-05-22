@@ -2,12 +2,11 @@
 
 layout: post
 title: "jQuery Plugins und AngularJs"
-abstract: 'Auch wenn man eine smarte WebApp mit AngularJS aufbaut, möchte man nicht auf den reichen Funktionsumfang und die tollen Plugins von jQuery verzichten. Muss man zum Glück auch nicht, da die beiden Frameworks großartig zusammenarbeiten.
-
+abstract: 'Auch wenn man eine smarte WebApp mit AngularJS aufbaut, möchte man nicht auf den reichen Funktionsumfang und die tollen Plugins von jQuery verzichten. Muss man zum Glück auch nicht, da die beiden Frameworks großartig zusammenarbeiten.
 Gewusst wie.
 '
 categories: jQuery, AngularJS
-background: venus
+redirect_from: "2014/02/04/jquery-plugins-und-angularjs/"
 
 ---
 

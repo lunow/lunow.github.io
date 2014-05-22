@@ -2,11 +2,10 @@
 
 layout: post
 title: "Die Killerapplikation mit Node.js, Socket.io und AngularJS"
-abstract: 'Wenn das kein Development Stack ist! Javascript vom Server bis zur Webapp. Wie der Einstieg funktioniert beschreibt dieser Artikel.
-
+abstract: 'Wenn das kein Development Stack ist! Javascript vom Server bis zur Webapp. Wie der Einstieg funktioniert beschreibt dieser Artikel.
 '
 categories: Javascript, AngularJS, Node.js
-background: beethoven
+redirect_from: "2013/04/28/die-killerapplikation-mit-node.js-socket.io-und-angularjs/"
 
 ---
 

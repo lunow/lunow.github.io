@@ -4,7 +4,7 @@ layout: post
 title: "Mehr Klickfläche"
 abstract: 'In den jQuery Tips für Designer habe ich das wirklich sinnvolle Script gefunden Mit dem wird ein Div-Container komplett klickbar, wobei die Adresse vom ersten gefunden Link genommen wird'
 categories: jQuery
-redirect_from: 2008/04/03/mehr-klickflache/
+redirect_from: "2008/04/03/mehr-klickflache/"
 
 ---
 

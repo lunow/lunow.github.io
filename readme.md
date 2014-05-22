@@ -16,3 +16,14 @@ You need a few things to start:
 - Run `jekyll serve --watch` to start the Jekyll Server and let it watch for changes while developing
 - Visit the Blog in the browser http://localhost:4000/
 
+
+## Import posts from WordPress
+
+Okay, its not the cleanest method, but its works. So grap the following WordPress Tables: `wp_posts`, `wp_terms`, `wp_term_relationships` and make it locally available.
+
+- Run `npm install` in the Folder `_sql_to_md`.
+- Update the login data in the `index.js` file.
+- Run with `node index.js` from subfolder.
+
+The script will remove(!) all files in `_posts`, grap the content from the database and transform it to *.md Files.
+Its very specialiced for my blog, but you can use it as an entry point.

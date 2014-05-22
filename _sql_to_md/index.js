@@ -34,7 +34,11 @@ var clean = function(content) {
 	return md(content, {inline: true});
 };
 
-var prepareContent = function(title, raw_content, categories, is_html) {
+var permalink = function(date, title) {
+	return date.replace(/-/g, '/') +'/'+slug(title).toLowerCase()+'/';
+};
+
+var prepareContent = function(title, raw_content, categories, date, is_html) {
 	var nl = "\n";
 	var seperator = raw_content.indexOf('<!--more-->') > 0 ? '<!--more-->' : '<!-- more -->';
 	var splitted_content = raw_content.split(seperator);
@@ -57,6 +61,7 @@ var prepareContent = function(title, raw_content, categories, is_html) {
 		new_content+= 'abstract: \''+abstract+'\''+nl;
 	}
 	new_content+= 'categories: '+categories.join(', ')+nl;
+	new_content+= 'redirect_from: "'+permalink(date, title)+'"'+nl;
 	new_content+= nl+'---'+nl+nl;
 
 	if(is_html) {
@@ -111,9 +116,8 @@ connection.connect(function(err) {
 					var date = moment(result.post_date);
 					var filename = date.format('YYYY-MM-DD')+'-'+slug(result.post_title).toLowerCase()+'.md';
 					var is_html = date.format('YYYY') < 2012;
-					var content = prepareContent(result.post_title, result.post_content, result_terms, is_html);
+					var content = prepareContent(result.post_title, result.post_content, result_terms, date.format('YYYY-MM-DD'), is_html);
 					console.log('#'+result.id+': '+filename);
-					console.log(result_terms);
 					fs.writeFile(posts_dir+filename, content);
 				});
 			});
