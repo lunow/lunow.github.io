@@ -2,7 +2,8 @@
 
 layout: post
 title: "Prototypen mit AngularJS erstellen"
-abstract: 'Als geneigter Webentwickler redet man mit vielen Leuten über viele Projekte. Und jeder bringt unterschiedliches Vorwissen mit und jeder schaltet bei einem anderen Level an Fachbegriffen ab.
+abstract: 'Als geneigter Webentwickler redet man mit vielen Leuten über viele Projekte. Und jeder bringt unterschiedliches Vorwissen mit und jeder schaltet bei einem anderen Level an Fachbegriffen ab.
+
 Deshalb ist es bei umfangreichen Projekten ratsam einen Prototypen zu erstellen an dem man konkrete Probleme zeigen kann und gemeinsam die nächsten Aufgaben festlegt.
 
 Mit AngularJS bekommt man ein mächtiges Werkzeug an die Hand, mit dessen Hilfe Prototypen innerhalb von ein paar Stunden funktionsfähig sind.
@@ -10,6 +11,7 @@ Mit AngularJS bekommt man ein mächtiges Werkzeug an die Hand, mit dessen Hilfe 
 '
 categories: AngularJS
 redirect_from: "2013/09/12/prototypen-mit-angularjs-erstellen/"
+background: lady
 
 ---
 

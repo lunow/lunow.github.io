@@ -2,12 +2,14 @@
 
 layout: post
 title: "Das Zusammenspiel von Directives, Services und Templates in AngularJS"
-abstract: 'Das großartige Framework AngularJS beschäftigt mich, und damit diesen Blog, schon eine ganze Weile. Es macht Spaß mit dieser Technologie WebApps in einer Geschwindigkeit zu entwickeln die jQuery und Co niemals zulassen.
+abstract: 'Das großartige Framework AngularJS beschäftigt mich, und damit diesen Blog, schon eine ganze Weile. Es macht Spaß mit dieser Technologie WebApps in einer Geschwindigkeit zu entwickeln die jQuery und Co niemals zulassen.
+
 Damit es wirklich so schnell geht muss man die AngularJS Konzepte verstehen. Dieser Artikel gibt einen kleinen Einblick in den Aufbau von Directives und Services.
 
 '
 categories: Javascript, AngularJS
 redirect_from: "2013/07/24/das-zusammenspiel-von-directives-services-und-templates-in-angularjs/"
+background: venus
 
 ---
 

@@ -2,12 +2,14 @@
 
 layout: post
 title: "Drei Absätze zur persönlichen Organisation"
-abstract: 'Als moderner Computersklave sitzt man den ganzen Tag vor dem Rechner, arbeitet, spielt, lernt und lacht. Zuhause angekommen geht das dann "zur Entspannung" gerne genau so weiter.
+abstract: 'Als moderner Computersklave sitzt man den ganzen Tag vor dem Rechner, arbeitet, spielt, lernt und lacht. Zuhause angekommen geht das dann "zur Entspannung" gerne genau so weiter.
+
 Dabei wird man überhäuft von Informationen, Aufgaben, Anfragen, Fehlern, Hinweisen und guten Vorsätzen. Soweit nichts neues. Ein paar Gedanken zur Organisation will ich in diesem Artikel vorstellen.
 
 '
 categories: Allgemein
 redirect_from: "2013/01/16/drei-absatze-zur-personlichen-organisation/"
+background: kuehe
 
 ---
 

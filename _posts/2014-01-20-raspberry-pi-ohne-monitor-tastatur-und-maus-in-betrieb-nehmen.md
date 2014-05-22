@@ -2,9 +2,11 @@
 
 layout: post
 title: "Raspberry Pi ohne Monitor, Tastatur und Maus in Betrieb nehmen"
-abstract: 'Der großartige Minicomputer ist jetzt endlich auch in meinem Arbeitszimmer angekommen. Zwischen iMac und MacBookPro stellte sich aber schnell die Frage: wie installiere ich das Teil ohne einen HDMI fähigen Monitor oder USB Tastatur. Zum Glück ist die Lösung kostenlos und ganz einfach!'
+abstract: 'Der großartige Minicomputer ist jetzt endlich auch in meinem Arbeitszimmer angekommen. Zwischen iMac und MacBookPro stellte sich aber schnell die Frage: wie installiere ich das Teil ohne einen HDMI fähigen Monitor oder USB Tastatur. Zum Glück ist die Lösung kostenlos und ganz einfach!
+'
 categories: RaspberryPi
 redirect_from: "2014/01/20/raspberry-pi-ohne-monitor-tastatur-und-maus-in-betrieb-nehmen/"
+background: feuer
 
 ---
 

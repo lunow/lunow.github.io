@@ -2,7 +2,8 @@
 
 layout: post
 title: "Ein Einstieg in AngularJS"
-abstract: 'Lange habe ich zugunsten von Backbone das Google Framework Angular nur halbherzig beobachtet und ausprobiert. Das Konzept den HTML Code mit eigenen Tags zu erweitern kam mir nicht besonders sauber vor. HTML dient schließlich zur Auszeichnung der Informationen und nicht zur Hinterlegung von Informationen.
+abstract: 'Lange habe ich zugunsten von Backbone das Google Framework Angular nur halbherzig beobachtet und ausprobiert. Das Konzept den HTML Code mit eigenen Tags zu erweitern kam mir nicht besonders sauber vor. HTML dient schließlich zur Auszeichnung der Informationen und nicht zur Hinterlegung von Informationen.
+
 Durch das zwanzigste Backbone Projekt in dem ich nachschauen musste wie der View per Render Methode sein HTML ausspuckt und wie zur Hölle ich beim letzten Projekt noch so grandios die Events verknüoft habe, fasste ich den Entschluss mich doch nocheinmal näher mit Angular auseinander zusetzen.
 
 Und siehe da: Es ist grandios! Wahnsinn! Cool!
@@ -10,6 +11,7 @@ Und siehe da: Es ist grandios! Wahnsinn! Cool!
 '
 categories: Javascript, AngularJS
 redirect_from: "2013/03/16/ein-einstieg-in-angularjs/"
+background: boot
 
 ---
 
