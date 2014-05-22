@@ -4,7 +4,7 @@ layout: post
 title: "PHP Snipplet: Die letzten X Tage..."
 abstract: 'Dieser **gregorianischer Kalender** hat bekanntlich seine Tücken. Zum Glück gibt es mit PHP eine sehr einfache Möglichkeit **die letzten X Tage **durchzugehen. Ohne sich Gedanken über **Monatswechsel**, **Jahreswechsel** und **Schaltjahre** zu machen.'
 categories: PHP
-redirect_from: "2009/01/08/php-snipplet-die-letzten-x-tage.../"
+redirect_from: "2009/01/08/php-snipplet-die-letzten-x-tage---/"
 
 ---
 

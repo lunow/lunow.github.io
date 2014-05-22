@@ -5,7 +5,7 @@ title: "Kiwi Teaser Version 1.1.0"
 abstract: 'Seit gestern steht die neue Version meiner Extension Kiwi Teaser im [Repository](http://typo3.org/extensions/repository/view/kiwi_teaser/current/ "Kiwi Teaser im TYPO3 Repository") bereit. Neben einem Icon für die Teaser Inhaltselemente ist auch ein kleiner Fehler in den generierten Pfaden zu den Ressourcen behoben. Die wirklich interessante, und diesen Post rechtfertigende Neuerung ist die **komplette Konfigurationsmöglichkeit über Typoscript**.
 Dadurch ist es möglich einen Teaserport direkt per Typoscript einzubinden und zum Beispiel einem Marker zuzuweisen. Außerdem kann man mit dieser praktischen Extension **jede beliebige Tabelle** auslesen!'
 categories: Kiwi Teaser
-redirect_from: "2010/03/04/kiwi-teaser-version-1.1.0/"
+redirect_from: "2010/03/04/kiwi-teaser-version-1-1-0/"
 
 ---
 

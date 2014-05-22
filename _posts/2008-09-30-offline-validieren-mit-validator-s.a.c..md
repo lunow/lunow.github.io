@@ -5,7 +5,7 @@ title: "Offline validieren mit Validator S.A.C."
 abstract: '![](http://blog.paul-lunow.de/wp-content/uploads/2008/09/dock.png)
 Bei [Pixelgraphix](http://www.pixelgraphix.de/weblog/artikel/stand-alone-w3c-html-validator-fuer-mac-os-x/) wurde ein [W3C Stand Alone Validator](http://habilis.net/validator-sac/) vorgestellt. Das ist doch mal ein praktisches Tool. Einfach eine Datei oder einen Link aus dem bevorzugten Browser auf das Icon im Dock ziehen und die Validierung wird gestartet.'
 categories: Allgemein
-redirect_from: "2008/09/30/offline-validieren-mit-validator-s.a.c./"
+redirect_from: "2008/09/30/offline-validieren-mit-validator-s-a-c-/"
 
 ---
 

@@ -4,7 +4,7 @@ layout: post
 title: "jQuery Version 1.3 ist da!!!"
 abstract: 'Herrliche Neuigkeiten: eine neue jQuery Version ist erschienen!!! Man beachte den'
 categories: jQuery
-redirect_from: "2009/01/14/jquery-version-1.3-ist-da/"
+redirect_from: "2009/01/14/jquery-version-1-3-ist-da/"
 
 ---
 

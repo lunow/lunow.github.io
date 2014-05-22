@@ -7,7 +7,7 @@ Passend zum Wetter präsentiert sich das neue Backend ganz in grau.
 [![Bildschirmfoto 2010-06-01 um 10.36.52](http://blog.paul-lunow.de/wp-content/uploads/2010/06/Bildschirmfoto-2010-06-01-um-10.36.52-1024x699.png)](http://blog.paul-lunow.de/wp-content/uploads/2010/06/Bildschirmfoto-2010-06-01-um-10.36.52.png)
 Und weil Bilder mehr als tausend Worte sagen, besteht dieser Beitrag nur noch aus ein paar Screenshots.'
 categories: TYPO3
-redirect_from: "2010/06/01/typo3-version-4.4-beta-3-screenshots/"
+redirect_from: "2010/06/01/typo3-version-4-4-beta-3-screenshots/"
 
 ---
 

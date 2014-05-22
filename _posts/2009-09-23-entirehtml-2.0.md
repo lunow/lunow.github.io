@@ -5,7 +5,7 @@ title: "entireHtml 2.0"
 abstract: 'Ich habe schon mal darüber bereichtet. Die Funktion **$(".test").html()** liefert nicht das komplette HTML, sondern nur das **innerHTML**. Mit meinem [vorhergehenden Post](http://www.interaktionsdesigner.de/2009/05/06/das-komplette-html-eines-elements-mit-jquery-auslesen/ "entireHtml in Pauls Blog") kriegt man schon sehr einfach das komplette HTML eines Elements, und genau das ist das Problem: **eines Elements**.
 Mit ein paar Zeilen mehr im Plugin läufts auch mit beliebig vielen Objekten. So funktionierts:'
 categories: Allgemein
-redirect_from: "2009/09/23/entirehtml-2.0/"
+redirect_from: "2009/09/23/entirehtml-2-0/"
 
 ---
 

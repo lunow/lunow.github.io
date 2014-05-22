@@ -7,4 +7,4 @@ paginate: 15
 paginate_path: "page/:num"
 url: http://www.interaktionsdesigner.de
 gems:
-- jekyll-redirect-from
+  - jekyll-redirect-from

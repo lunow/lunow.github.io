@@ -35,7 +35,9 @@ var clean = function(content) {
 };
 
 var permalink = function(date, title) {
-	return date.replace(/-/g, '/') +'/'+slug(title).toLowerCase()+'/';
+	var title_slug = slug(title).toLowerCase();
+	title_slug = title_slug.replace(/\./g, '-');
+	return date.replace(/-/g, '/') +'/'+title_slug+'/';
 };
 
 var prepareContent = function(title, raw_content, categories, date, is_html) {

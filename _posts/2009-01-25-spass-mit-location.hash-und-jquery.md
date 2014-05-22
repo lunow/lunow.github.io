@@ -5,7 +5,7 @@ title: "Spaß mit location.hash und jQuery"
 abstract: 'Weiter gehts mit **Tutorials für jQuery**! Nach dem sich [der erste Teil mit Navigation](http://www.interaktionsdesigner.de/2009/01/24/menu-tutorial-fur-jquery/ "Ein einfaches jQuery Tutorial") beschäftigen sollte, habe ich gemerkt, dass es keinen Sinn macht nur _ein_ Tutorial darüber zu schreiben. Denn so einfach eine simple Liste mit Links auch aussieht; -  umso mehr gibt es darüber zu sagen.  Also wird es eine ganze Reihe Tutorials dazu geben!
 Diesmal gehts um den **Location Hash**. Das ist der Teil der URL der mit einer Raute (\#) von der restlichen Adresse getrennt ist. Bekannt von Sprungmakern (interne Seitenverweise) gewinnt er im Zusammenspiel mit neusten JavaScripttechnologien immer mehr an Bedeutung.'
 categories: jQuery, Tutorial
-redirect_from: "2009/01/25/spass-mit-location.hash-und-jquery/"
+redirect_from: "2009/01/25/spass-mit-location-hash-und-jquery/"
 
 ---
 

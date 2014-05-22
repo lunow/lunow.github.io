@@ -5,7 +5,7 @@ title: "TYPO3 Extension Kiwi Accordion Version 1.6"
 abstract: 'Nach einigen Mails und Forenbeiträgen hatte ich schon Bauchschmerzen und fühlte mich ungut, denn meine kleine, feine Extension [**Kiwi Accordion**](http://typo3.org/extensions/repository/view/kiwi_accordion/current/ "Kiwi Accordion im Repository") setzte die "Rahmen"-Eigenschaft von Inhaltselementen außer kraft.
 Aber damit ist jetzt Schluss! **Die neue Version** legt ihre Container unabhängig von den Rahmen um den Inhalt. Zeitnah im Repository verfügbar. Auf meiner [privaten Seite](http://www.paul-lunow.de/kiwi-accordion "Webentwickler aus Berlin") gibt es eine Demonstration und im folgenden Eintrag ein paar technische Erklärungen.'
 categories: Kiwi Accordion, TYPO3
-redirect_from: "2010/02/11/typo3-extension-kiwi-accordion-version-1.6/"
+redirect_from: "2010/02/11/typo3-extension-kiwi-accordion-version-1-6/"
 
 ---
 
