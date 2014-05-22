@@ -1,5 +1,4 @@
 _site
-bower_components
 .sass-cache
 .sass-cache/*
 _sql_to_md/node_modules
