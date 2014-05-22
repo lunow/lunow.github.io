@@ -1,0 +1,31 @@
+{
+  "name": "id2014",
+  "version": "1.0.0",
+  "authors": [
+    "Paul Lunow <paul@lun.io>"
+  ],
+  "description": "my new blog",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.interaktionsdesigner.de",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "jquery.scrollTo": "~1.4.11",
+    "highlightjs": "~8.0.0",
+    "gh3": "~1.0.3",
+    "moment": "~2.6.0",
+    "fastclick": "~1.0.1",
+    "underscore": "~1.6.0"
+  }
+}

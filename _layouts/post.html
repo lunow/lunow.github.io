@@ -1,0 +1,88 @@
+---
+layout: post
+---
+{% include head.html %}
+
+<!-- <div id="debug" style="position:absolute; width:100%; background: red; height:1px; left:0;"></div> -->
+	<div class="head single" {% if page.background %} style="background-image:url(/img/{{ page.background }}.jpg)" {% endif %}>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>
+						<a class="logo" href="/">id <span>{{ page.date | date: '%Y' }}</span></a>
+					</h1>
+				</div>
+				<div class="col-md-9">
+					<h1 class="title-wrap">
+						<a href="#" class="title">{{ page.title }}</a>
+					</h1>
+					{{ page.abstract | markdownify }}
+				</div>
+			</div>
+		</div>
+		<div class="gradient"></div>
+	</div>
+
+	<div class="container main">
+		
+		<div class="row post single">
+			<div class="content col-md-9">
+				<p class="intro">
+					Ein Artikel von <a href="http://www.paul-lunow.de">Paul Lunow</a>,
+					erschienen {{ page.date | date: '%Y' }} auf <a href="/">Interaktionsdesigner.de</a>.
+				</p>
+				{{ content }}
+			</div>
+			<div class="col-md-3">
+				<div class="toc visible-md visible-lg sidebar">
+					<ul class="nav nav-pills nav-stacked">
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3 helper"></div>
+		</div>
+
+		<div class="row post-footer">
+			<div class="col-md-12"><hr></div>
+			<div class="col-md-6">
+				<h2>Deine Meinung</h2>
+				<p>Sind wir einer Meinung? Sind noch Fragen offen geblieben?</p>
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					var disqus_shortname = 'interaktionsdesigner'; // required: replace example with your forum shortname
+
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Ohne Javascript gibt es keine Kommentare. Sorry. <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</div>
+			<div class="col-md-6">
+				<h2>Mehr zum Thema {{ page.category }}</h2>
+			
+				<div class="related posts ">
+					{% for rpost in site.related_posts limit:10 %}
+					<div class="row">
+						<div class="post">
+							<div class="col-md-10 title">
+								<h3><a href="{{rpost.url}}">{{rpost.title}}</a></h3>
+							</div>
+							<div class="col-md-2 date">{{rpost.date}}</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col-md-12"><hr></div>
+		</div>
+
+	</div>
+
+
+{% include foot.html %}
