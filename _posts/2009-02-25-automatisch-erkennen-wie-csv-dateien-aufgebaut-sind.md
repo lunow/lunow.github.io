@@ -9,6 +9,14 @@ redirect_from: "2009/02/25/automatisch-erkennen-wie-csv-dateien-aufgebaut-sind/"
 
 ---
 
+
+## Update Juli 2014
+
+Die Zeiten ändern sich. Inzwischen würde ich nicht mehr PHP nutzen, sondern ein hochspezialisiertes NodeJS Programm schreiben das sowohl im Browser als auch in der Cloud läuft und auf der großartigen Library [Papa Parse](http://papaparse.com/) basiert. Viel Spaß!
+
+
+## Lösungsansatz mit PHP
+
 Die Funktion erwartet einen String, z.B. 
     
     "spalte1", "spalte2", "spalte3"
