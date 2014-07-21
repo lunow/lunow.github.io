@@ -23,7 +23,10 @@ Die Funktion erwartet einen String, z.B.
 
 und gibt dann ein Array zurück mit den Keys _delimiter_ und _enclosure_. Aus dem obrigen Beispiel wäre das dann 
     
-    Array(    [delimiter] => ;     [enclosure] => ")
+    Array(
+        [delimiter] => ',',
+        [enclosure] => '"'
+    )
 
 Hier kommt die **komplette Funktion** und anschließend ein paar erklärende Worte.
     
@@ -86,5 +89,8 @@ Wenn es also das umschließende Zeichen ist, und nicht durch ein Backslash ausko
 
 Wenn sich das Zeichen nicht innerhalb einer Spaltenbezeichnung befindet und auch nicht auskommentiert wurde, dann wird das Arrayelement _$d_ (_d = Delimiter_) mit dem Zeichen als Schlüssel um eins erhöht.
 Der Grund dafür ist das eventuelle Auftreten von Sonderzeichen in einer Spaltenbezeichnung ohne Enclosure (z.B. spalte1, spalte2&3, spalte4). Am Ende wird das Zeichen als Delimeter erwartet welches **am häufigsten gefunden** wurde. Das gibt zwar ein Problem bei einem String wie _c&a, p&c, m&m_ - aber dann muss man seine Felder halt mit einem Zeichen umschließen.
-**Ende!** Wer jetzt in seinem Kopf die Idee spinnt daraus ein Tool zu bauen welches **CSV Dateien in eine Datenbank importiert**, dem sei geraten noch ein paar Tage zu warten oder mir eine Mail zu schicken. Hab da was tolles in der mache was demnächst veröffentlicht wird :).
+
+## Fazit
+
+Wer jetzt in seinem Kopf die Idee spinnt daraus ein Tool zu bauen welches **CSV Dateien in eine Datenbank importiert**, dem sei geraten noch ein paar Tage zu warten oder mir eine Mail zu schicken. Hab da was tolles in der mache was demnächst veröffentlicht wird :).
 Wer _Ideen_, _Probleme_ und _Verbesserungsvorschläge_ hat kann diese gerne in den Kommentaren los werden.
