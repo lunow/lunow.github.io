@@ -5,7 +5,7 @@ title: "AngularJS Directives richtig nutzen"
 abstract: "Das großartige Framework AngularJS beschäftigt mich jetzt schon über eine ganze Reihe von WebApps hinweg. Und ich bin immer noch begeistert. Wenn man die Aufteilung verinnerlicht hat und den Angular Konventionen folgt, wird man belohnt mit einer sauberen, logischen und erweiterbaren Applikation.
 
 Eine zentrale Rolle spielen dabei die Directives. Welche und wie man am besten mit ihnen umgeht, erklärt dieser Artikel."
-categories: AngularJs
+categories: AngularJS
 background: marktplatz
 
 ---
