@@ -1,5 +1,6 @@
 body {
-  font-family: 'Open Sans', Arial, sans-serif; }
+  font-family: 'Open Sans', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; }
 
 a {
   color: #c3262c;
