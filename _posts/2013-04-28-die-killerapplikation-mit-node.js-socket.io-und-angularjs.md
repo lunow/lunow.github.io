@@ -14,7 +14,7 @@ background: beethoven
 
 ## Node.js
 
-Die nächste Generation von Servern basieren nicht mehr auf ein Frage-Antwort-Spielchen wie beim guten, alten Apache sondern sind ein ständiger Gesprächspartner der immer bereit steht.
+Die nächste Generation von Servern basieren nicht mehr auf ein Frage-Antwort-Spielchen wie beim guten, alten Apache sondern sind ein ständiger Gesprächspartner der immer bereit ist.
 
 [Node](http://nodejs.org) läuft auf dem Server und zur Entwicklung auf dem eigenen Computer. Die Installation ist schnell erledigt mit Hilfe der offiziellen Installationsprogramme: http://nodejs.org/download/
 
@@ -122,7 +122,7 @@ Die Serverimplementierung ist abgeschlossen, auf zum Frontend.
 
 Ein großartiges Framework das einem bei der Erstellung einer Webapplikation eine ganze Menge nerviger Arbeit abnimmt. Das erklärte Ziel ist es, eine neue Entwicklungsmethode zu schaffen die weniger, besseren und vorallem testbaren Code erzeugt. Und das kriegt sie bestens hin.
 
-Einen ersten Einstieg habe ich bereits in einem [Artikel](http://www.interaktionsdesigner.de/2013/03/16/ein-einstieg-in-angularjs/) beschrieben, auf der offiziellen Seite findet man jede Menge Tutorials - es lohnt sich das offizielle [Tutorial](http://docs.angularjs.org/tutorial) mit dem begleitenden Git Repository durchzuarbeiten. Das geht schnell und deckt alle wichtigen Themengebiete ab.
+Einen ersten Einstieg habe ich bereits in einem [Artikel](http://www.interaktionsdesigner.de/2013/ein-einstieg-in-angularjs/) beschrieben, auf der offiziellen Seite findet man jede Menge Tutorials - es lohnt sich das offizielle [Tutorial](http://docs.angularjs.org/tutorial) mit dem begleitenden Git Repository durchzuarbeiten. Das geht schnell und deckt alle wichtigen Themengebiete ab.
 
 Leider verschmutzt das Einsteigertutorial den globalen Namensraum mit den Controllern, die wie folgt definiert werden:
 
@@ -132,17 +132,18 @@ Leider verschmutzt das Einsteigertutorial den globalen Namensraum mit den Contro
 
 Als Javascript Entwickler ist es aber die Pflicht den Namensraum sauber zu halten um Konflikten aus dem Weg zu gehen. Natürlich bietet Angular hier eine Lösung die ich im folgenden auch benutzen will:
 
-	var App = angular.module('App');
-	App.controller('HelloCtrl', function($scope) {
+	angular.module('App', []);
+
+	angular.module('App').controller('HelloCtrl', function($scope) {
 		//content goes here
 	});
 	
-Damit verfügt man über eine globale Variable `App` in der das Angular Module definiert wird.
+Die Definition eines Angular Modules erfolgt über die Funktion `module()` mit zwei Parametern: Dem Namen des Modules und ein Array mit den Abhängigkeiten. Lässt man den zweiten Parameter weg dient die Funktion als Getter, gibt also das angegebene Modul zurück.
 
 
 ### Hallo Angular
 
-Nach dem einbinden der Javascript Datei, sofern man stets online arbeitet auch gerne vom [Google CDN](https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js),  legt man die Datei `client/js/app.js` an. Unter `client/index.html` legt man folgende HTML Struktur ab:
+Nach dem einbinden der Javascript Datei, sofern man stets online arbeitet auch gerne vom [Google CDN](https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js),  legt man die Datei `client/js/app.js` an. Unter `client/index.html` legt man folgende HTML Struktur ab:
 
 	<!DOCTYPE HTML>
 	<html ng-app="App">
@@ -161,9 +162,9 @@ Nach dem einbinden der Javascript Datei, sofern man stets online arbeitet auch g
 
 Über das Attribut `ng-app` im HTML Tag informieren wir Angular das es sich bei der gesamten Seite um eine Applikation namens `App` handelt. Der `DIV` Container mit dem Attribut `ng-view` wird von Angular automatisch benutzt um eine Ansicht (View) der Applikation darzustellen.
 
-Die App muss es natürlich geben. Als erstes soll sie den Nutzer persönlich begrüßen. Das nenen ich die `frontpage`. Dazu wird eine neue Datei angelegt: `client/partials/frontpage.html` mit einem einfachen Inhalt:
+Die App muss es natürlich geben. Als erstes soll sie den Nutzer persönlich begrüßen. Das nenne ich die `frontpage`. Dazu wird eine neue Datei angelegt: `client/partials/frontpage.html` mit einem einfachen Inhalt:
 
-	<h1>Hallo {{name}}</h1>
+	<h1>Hallo \{\{name\}\}</h1>
 
 Diese soll bei dem Aufruf von `http://127.0.0.1:8080/#/frontpage` automatisch nachgeladen und angezeigt werden. Dazu soll ein Controller aufgerufen werden, der den Platzhalter `name` mit dem Namen des Programmierers austauscht. Ist kein Hash angegeben soll zur Startseite weitergeleitet werden.
 
@@ -172,10 +173,10 @@ Das klingt nicht nach einer unlösbaren Aufgabe, aber schon nach einem Stückche
 So sieht die ganze Applikation aus die alle oben genannten Aufgaben löst:
 
 	//define a global application
-	var App = angular.module('App', []);
+	angular.module('App', []);
 
 	//create an app router for url management and redirect
-	App.config(function($routeProvider) {
+	angular.module('App').config(function($routeProvider) {
 		$routeProvider.when('/frontpage', {
 			templateUrl: 'partials/frontpage.html',
 			controller: 'frontpage',
@@ -184,14 +185,14 @@ So sieht die ganze Applikation aus die alle oben genannten Aufgaben löst:
 	});
 
 	//frontpage controller
-	App.controller('frontpage', function($scope) {
+	angular.module('App').controller('frontpage', function($scope) {
 		console.log('Hello from the Frontpage Controller');
 		$scope.name = 'Paul';
 	});
 
 Schön, oder? Angular bringt die Magie mit, den Funktionsaufruf zu analysieren und die angegebene Abhängigkeit, z.B. `$routeProvider`, automatisch in den Callback einzufügen. So lässt sich mit der `config()` Funktion eine beliebige Anzahl von Routen definieren, die bei Aufruf automatisch nachgeladen werden, den angegeben Controller aufrufen, welcher wiederum über die Abhängigkeit `$scope` mit dem Template kommunizieren kann.
 
-Angular Funktionen beginnen stets mit einem Dollarzeichen welches sie von eigenen Funktionen unterscheidbar macht.
+Angular Funktionen beginnen stets mit einem Dollarzeichen welches sie von eigenen Funktionen unterscheidbar macht. Und was man als Entwickler auch respektiert und einge Module **nicht** mit einem Dollarzeichen beginnen lässt.
 
 Mit diesem Aufbau lässt sich schon einiges anstellen. Zum Beispiel in dem man eine Route `view` inklusive Controller und HTML Template (View) hinzufügt und darauf in der `frontpage.html` verlinkt:
 
@@ -225,6 +226,8 @@ Verbindet sich ein Client, wird das Event `connection` ausgelöst. Nach diesem E
 	io.sockets.on('connection', function(socket) {
 		console.log('client connected!');
 	});
+
+Das steht auch ganz hervorrangend neben den durch Express definierten Routen.
 	
 
 ### Der Client
@@ -236,7 +239,7 @@ Im Frontend muss ebenfalls die Socket.io Library eingebunden werden. Diese wird 
 		var socket = io.connect();
 	</script>
 	
-Nach dem neuladen im Browser wird die oben eingegebene Zeile im Terminal ausgegeben: **client connected!**
+Nach dem Neuladen im Browser wird die oben eingegebene Zeile im Terminal ausgegeben: **client connected!**
 
 
 #### Auf Events reagieren
@@ -254,13 +257,20 @@ Als Parameter werden dem Callback sämtliche Daten übergeben, die beim auslöse
 
 Der Schlüssel dazu ist die Funktion `emit()` - diese schickt ein Event auf die Reise.
 
-	socket.emit('hello', 'Paul');
+	io.sockets.on('connection', function(socket) {
+		socket.emit('hello', 'Paul');
+	});
 
-Auf der Serverseite gibt es noch eine Besonderheit. Das Objekt `socket` ist nach dem Verbindungsaufbau genau mit einem Client verbunden. Um die anderen Clients zu erreichen muss das Flag `broadcast` benutzt werden.
+Auf der Serverseite gibt es noch eine Besonderheit. Das Objekt `socket` ist nach dem Verbindungsaufbau genau mit einem Client verbunden. Um die **anderen** Clients zu erreichen muss das Flag `broadcast` benutzt werden.
 
 	socket.broadcast.emit('hello', '@all');
 
 Damit schickt man ein Event an alle verbundenen Clients, mit Ausnahme des Senders. Also eine großartige Funktion wenn einer alle anderen informiert.
+
+Sollen alle, also auch der Sender, mit informiert werden nutzt man das `io` Objekt:
+
+	io.sockets.emit('processing', { remaining: 342342 });
+
 
 Die `emit()` Funktion verfügt ebenfalls über eine Callbackfunktion. Man sendet ein Event ab und hinterlegt als dritten Parameter eine Funktion:
 
@@ -277,6 +287,7 @@ Der darauf reagierende Eventhandler muss die Funktion aufrufen:
 	});
 
 Alles was eine direkte Rückmeldung erfordert lässt sich damit schnell und elegant abhandeln.
+
 
 
 ## Socket.io und AngluarJS
@@ -339,11 +350,11 @@ Die Funktion `emit()` untersucht die übergebenen Parameter. Das bedeutet man ka
 
 Als erstes muss der Applikation mitgeteilt werden, dass das Modul `Services` benutzt werden soll. Also eine Abhängigkeit der ganzen Applikation ist. Das praktische daran ist, dass sich in dem Service natürlich auch alle anderen nützlichen Helferein definieren lassen.
 
-	var App = angular.module('App', ['Services']);
+	angular.module('App', ['Services']);
 	
 Anschließend soll im `Frontend Controller` der `Socket` Service benutzt werden. Dieser wird als zweiter Parameter dem Callback übergeben:
 
-	App.controller('frontpage', function($scope, Socket) {
+	angular.module('App').controller('frontpage', function($scope, Socket) {
 		//Socket is usable!
 	});
 	
@@ -380,7 +391,7 @@ Wenn ein Client das Event `ready` schickt wird es an alle anderen Clients weiter
 
 Der `Frontend Controller` wird ebenfalls erweitert:
 
-	App.controller('frontpage', function($scope, Socket) {
+	angular.module('App').controller('frontpage', function($scope, Socket) {
 		$scope.loading = true;
 		$scope.readys = [];
 
@@ -424,7 +435,7 @@ Alles was im `Scope` definiert wird, steht in der HTML Datei `frontend.html` zur
 			<button ng-click="setReady()">YES!</button>
 		</p>
 		<ul>
-			<li ng-repeat="ready in readys">{{ready}}</li>
+			<li ng-repeat="ready in readys">\{\{ready\}\}</li>
 		</ul>
 	</div>
 	
@@ -472,8 +483,12 @@ Diese Anleitung kratzt natürlich wie immer nur an der Oberfläche, es lohnt sic
 
 Außerdem sollten Unit Tests genau so wie End to End Tests geschrieben werden um die Fehlerfreiheit und Erweiterbarkeit des eigenen Produkts zu erhalten.
 
-Wer es noch nicht getan hat sollte unbedingt im Zuge der ganze Neuerungen auch gleich `SASS` benutzen. CSS auf dem nächsten Level.
+Wer es noch nicht getan hat sollte unbedingt im Zuge der ganze Neuerungen auch gleich `SASS` benutzen. [CSS auf dem nächsten Level](http://www.interaktionsdesigner.de/2013/css-level-zwei/).
 
 Die schöne, neue Webentwicklungswelt hat eine ganze Menge tolle Entwicklung erfahren. Es lohnt sich einzusteigen und am Ball zu bleiben.
+
+Wenn der eigene Ordnungssinn überwiegt und man anfängt die Applikation auf Dateien aufzuteilen, sollte man sich von einem [automatisierten Gulp Prozess](http://www.interaktionsdesigner.de/2013/css-level-zwei/) unter die Arme greifen lassen.
+
+Und alles Rund um das hier nicht man angekratzte Thema Directives gibt es zum Glück auch schon im Blog. [AngularJS Directives richtig nutzen](http://www.interaktionsdesigner.de/2014/angularjs-directives-richtig-nutzen/).
 
 Bleibt nur noch zu sagen: **Less Code, more Fun!**
