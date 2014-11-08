@@ -10,7 +10,7 @@ redirect_from: "2013/04/28/die-killerapplikation-mit-node-js-socket-io-und-angul
 background: beethoven
 ---
 
-
+{% raw %}
 
 ## Node.js
 
@@ -164,7 +164,7 @@ Nach dem einbinden der Javascript Datei, sofern man stets online arbeitet auch g
 
 Die App muss es natürlich geben. Als erstes soll sie den Nutzer persönlich begrüßen. Das nenne ich die `frontpage`. Dazu wird eine neue Datei angelegt: `client/partials/frontpage.html` mit einem einfachen Inhalt:
 
-	<h1>Hallo \{\{name\}\}</h1>
+	<h1>Hallo {{name}}</h1>
 
 Diese soll bei dem Aufruf von `http://127.0.0.1:8080/#/frontpage` automatisch nachgeladen und angezeigt werden. Dazu soll ein Controller aufgerufen werden, der den Platzhalter `name` mit dem Namen des Programmierers austauscht. Ist kein Hash angegeben soll zur Startseite weitergeleitet werden.
 
@@ -435,7 +435,7 @@ Alles was im `Scope` definiert wird, steht in der HTML Datei `frontend.html` zur
 			<button ng-click="setReady()">YES!</button>
 		</p>
 		<ul>
-			<li ng-repeat="ready in readys">\{\{ready\}\}</li>
+			<li ng-repeat="ready in readys">{{ready}}</li>
 		</ul>
 	</div>
 	

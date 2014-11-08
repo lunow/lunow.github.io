@@ -9,7 +9,7 @@ categories: AngularJS
 background: marktplatz
 
 ---
-
+{% raw %}
 
 ## Der Einstiegsfehler
 

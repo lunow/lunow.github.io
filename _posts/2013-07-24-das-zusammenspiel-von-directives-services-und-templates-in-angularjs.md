@@ -12,7 +12,7 @@ redirect_from: "2013/07/24/das-zusammenspiel-von-directives-services-und-templat
 background: venus
 
 ---
-
+{% raw %}
 
 
 ## Directives
