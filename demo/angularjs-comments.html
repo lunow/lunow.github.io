@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+	<html lang="de" ng-app>
+		<head>
+			<meta charset="utf-8">
+			<title>AngularJS</title>
+		<style>
+			.comment {
+				color:silver;
+			}
+			.comment.approved {
+				color:black;
+			}
+		</style>
+		</head>
+		<body>
+
+		<div class="comments" ng-controller="App.comments">
+			<h1>{{ comments.length }} Kommentare</h1>
+			<ul ng-repeat="comment in comments">
+				<li class="comment" ng-class="{approved: comment.approved}">
+					<strong>{{comment.name }}:</strong>
+					<span>{{comment.text }}</span>
+					<a href="#" ng-click="approve()" ng-show="!comment.approved">approve</a>
+					<a href="#" ng-click="drop()">delete</a>
+				</li>
+			</ul>
+		<form>
+			<label for="name">Name:</label>
+			<input type="text" id="name" ng-model="name" />
+			<label for="text">Comment:</label>
+			<input type="text" id="text" ng-model="text" />
+			<input type="submit" value="Submit Comment" ng-click="submit()" />
+		</form>
+		</div>
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			<script>
+				var App = {};
+
+				App.comments = function($scope) {
+					$scope.comments = [
+						{
+							name: 'peter',
+							text: 'Hallo Leute.',
+							approved: true
+						},
+						{
+							name: 'marie',
+							text: 'Hey Peter, wie gehts?',
+							approved: true
+						},
+						{
+							name: 'rüpel',
+							text: 'Ihr Schwachköpfe, ihr!',
+							approved: false
+						}
+					];
+
+					$scope.approve = function() {
+						this.comment.approved = true;
+					};
+
+					$scope.drop = function() {
+						this.comments.splice(this.comments.indexOf(this.comment), 1);
+					};
+
+					$scope.submit = function() {
+						this.comments.push({
+							name: this.name,
+							text: this.text,
+							approved: false
+						});
+						this.name = '';
+						this.text = '';
+					};
+				};
+			</script>
+		</body>
+	</html>

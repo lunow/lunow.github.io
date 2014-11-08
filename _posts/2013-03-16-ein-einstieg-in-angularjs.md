@@ -14,7 +14,7 @@ redirect_from: "2013/03/16/ein-einstieg-in-angularjs/"
 background: boot
 
 ---
-
+{% raw %}
 
 
 ## Einleitung
@@ -40,7 +40,7 @@ Die Installation ist wirklich sehr einfach. Als erstes stellt man sich ein schö
 		</head>
 		<body>
 			
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 			<script src="app.js"></script>
 		</body>
 	</html>
@@ -68,10 +68,13 @@ Jetzt kann der erste Controller definiert werden. Das klingt aufregender als es 
 				approved: 1			
 			}
 		];
-		$scope.count = $scope.comments.length;
 	};
 	
-Der Controller bekommt von Angular einen Parameter `$scope` übergeben über den er mit einem Teil der HTML Struktur kommuniziert. Und genau dieser muss in der HTML Struktur erzeugt werden.
+`$scope` wird von Angular automatisch ausgefüllt durch Dependency Injection. Angular prüft den Namen des Parameter, die Reihenfolge spielt also keine Rolle! Die folgenden zwei Zeilen führen zum gleichen Ergebnis.
+
+	App.comments = function($scope, $rootScope)
+	//equals
+	App.comments = function($rootScope, $scope)
 
 Damit Angular weiß das es loslegen muss, braucht man das `ng-app` Attribut im HTML Tag. 
 
@@ -224,15 +227,15 @@ Genau so leicht lassen sich Templates nachladen, Widgets einbinden und die URL v
 
 Ein guter Einstieg ist das AngularJS Tutorial, das alle wichtigen Schritte erklärt: [http://docs.angularjs.org/tutorial](http://docs.angularjs.org/tutorial).
 
-Meine nächsten Projekte werde ich mit diesem Framework angehen und hoffe das damit der eine oder andere Blogeintrag abfällt. Über Fragen und noch mehr über Verbesserungsvorschläge freue ich mich!
+Im Blog finden sich inzwischen einige Einträge zum Thema AngularJS, zum Beispiel [Zusammenspiel von Directives, Services und Templates](http://www.interaktionsdesigner.de/2013/das-zusammenspiel-von-directives-services-und-templates-in-angularjs/) oder [Die Killerapplikation mit Node, Socket.io und Angular](http://www.interaktionsdesigner.de/2013/die-killerapplikation-mit-node.js-socket.io-und-angularjs/). Viel Spaß beim weiter lernen!
+
 
 
 ## Alles in allem
 
-Die oben entwickelte "Applikation" in ihrer ganzen Schönheit.
+Die oben entwickelte "Applikation" in ihrer ganzen Schönheit. Oder hier im Browser anschauen: [demo/angularjs-comments.html](http://www.interaktionsdesigner.de/demo/angularjs-comments.html).
 
-`index.html`
-
+	
 	<!DOCTYPE html>
 	<html lang="de" ng-app>
 		<head>
@@ -268,49 +271,49 @@ Die oben entwickelte "Applikation" in ihrer ganzen Schönheit.
 		</form>
 		</div>
 			
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
-			<script src="app.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+			<script>
+				var App = {};
+
+				App.comments = function($scope) {
+					$scope.comments = [
+						{
+							name: 'peter',
+							text: 'Hallo Leute.',
+							approved: true
+						},
+						{
+							name: 'marie',
+							text: 'Hey Peter, wie gehts?',
+							approved: true
+						},
+						{
+							name: 'rüpel',
+							text: 'Ihr Schwachköpfe, ihr!',
+							approved: false
+						}
+					];
+
+					$scope.approve = function() {
+						this.comment.approved = true;
+					};
+
+					$scope.drop = function() {
+						this.comments.splice(this.comments.indexOf(this.comment), 1);
+					};
+
+					$scope.submit = function() {
+						this.comments.push({
+							name: this.name,
+							text: this.text,
+							approved: false
+						});
+						this.name = '';
+						this.text = '';
+					};
+				};
+			</script>
 		</body>
 	</html>
+
 	
-`app.js`
-
-	var App = {};
-
-	App.comments = function($scope) {
-		$scope.comments = [
-			{
-				name: 'peter',
-				text: 'Hallo Leute.',
-				approved: true
-			},
-			{
-				name: 'marie',
-				text: 'Hey Peter, wie gehts?',
-				approved: true
-			},
-			{
-				name: 'rüpel',
-				text: 'Ihr Schwachköpfe, ihr!',
-				approved: false
-			}
-		];
-
-		$scope.approve = function() {
-			this.comment.approved = true;
-		};
-
-		$scope.drop = function() {
-			this.comments.splice(this.comments.indexOf(this.comment), 1);
-		};
-
-		$scope.submit = function() {
-			this.comments.push({
-				name: this.name,
-				text: this.text,
-				approved: false
-			});
-			this.name = '';
-			this.text = '';
-		};
-	};
