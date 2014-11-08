@@ -27,9 +27,13 @@ layout: post
 		
 		<div class="row post single">
 			<div class="content col-md-9">
-				<p class="intro">
+				<p class="intro" data-fn="{{page.path}}">
 					Ein Artikel von <a href="http://www.paul-lunow.de">Paul Lunow</a>,
 					erschienen {{ page.date | date: '%Y' }} auf <a href="/">Interaktionsdesigner.de</a>.
+				</p>
+				<p class="intro update">
+					Zuletzt überarbeitet am <span class="date"></span> von <date class="user"></date>:
+					<a href="#" class="msg" target="_blank"></a>.
 				</p>
 				{{ content }}
 			</div>

@@ -232,6 +232,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 			@include respond-to(phone) {
 				font-size:100%;
 			}
+
+			&.update {
+				display:none;
+			}
 		}
 
 		h2, h3, h4, h5 {

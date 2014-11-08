@@ -1,6 +1,13 @@
-/*global hljs */
+/*global hljs, FastClick, moment */
+
 
 (function($) {
+	/**
+	 *	Table of Content
+	 *	----------------
+	 *	Create a Table of Content from Headlines in Article.
+	 *
+	 */
 	jQuery.fn.toc = function(options) {
 		
 		var defaults = {
@@ -70,6 +77,12 @@
 })(jQuery);
 
 (function($) {
+	/**
+	 *	Avoid Widows
+	 *	------------
+	 *	Nobody wants to see this ugly
+	 *	widows
+	 */
 	$.fn.avoidWidows = function() {
 		return this.each(function() {
 			var h2all = $(this).text();
@@ -82,7 +95,8 @@
 	};
 })(jQuery);
 
-var GitHubFile = function(args) {
+
+/*var PostOnGithub = function(args) {
 	var opts = _.extend({
 		user: 'angular',
 		repository: 'angular.js',
@@ -96,51 +110,66 @@ var GitHubFile = function(args) {
 	my.branch_name = opts.branch;
 	my.user = new Gh3.User(opts.user);
 	my.repo = new Gh3.Repository(opts.repository, my.user);
-	my.repo.fetch(function() { my.onFetch.apply(my, arguments); });
+	// my.repo.fetch(my.onFetch);
+
+	var file = {
+		path: opts.file,
+		type: 'file'
+	};
+	my.file = new Gh3.File(file, my.user, opts.repository, opts.branch);
 
 	my.onError = function(err) {
 		console.error('GitHubError:', err);
 		dfd.reject(err);
 	};
 
-	my.onFetch = function(err, res) {
-		if(err) { return my.onError(err) }
-		my.repo.fetchBranches(function() { my.onFetchBranches.apply(my, arguments); });
-	};
-
-	my.onFetchBranches = function(err, res) {
-		if(err) { return my.onError(err) }
-		my.branch = my.repo.getBranchByName(my.branch_name);
-		my.branch.fetchContents(function() { my.onFetchContents.apply(my, arguments); });
-	};
-
-	my.onFetchContents = function(err, res) {
-		if(err) { return my.onError(err) }
-		my.file = my.branch.getFileByName(my.file_name);
-		my.file.fetchCommits(function() { my.onFetchCommits.apply(my, arguments); });
-	};
-
-	my.onFetchCommits = function(err, res) {
+	my.onFetchCommits = function(err) {
 		if(err) { return my.onError(err) }
 		var commit = my.file.getLastCommit();
 		var result = {
 			author: commit.author.name,
 			moment: moment(commit.date),
-			message: commit.message
+			message: commit.message,
+			url: my.file.html_url,
+			updated: my.file.commits > 1
 		};
 		dfd.resolve(result);
 	};
 
+	my.file.fetchCommits(my.onFetchCommits);
+	return dfd.promise();
+};*/
+
+var getLastCommit = function(path) {
+	var dfd = $.Deferred();
+	$.ajax({
+		url: 'https://api.github.com/repos/lunow/lunow.github.io/commits',
+		data: {
+			'path': path
+		}
+	}).then(function(commits) {
+		var commit = _.first(commits);
+		var response = {
+			moment: moment(commit.commit.author.date),
+			author: commit.commit.author.name,
+			message: commit.commit.message,
+			url: commit.html_url,
+			updated: commits.length > 1
+		};
+		dfd.resolve(response);
+	});
 	return dfd.promise();
 };
 
-var checkGitHubStatus = function(fn) {
-	GitHubFile({
-		user: 'lunow',
-		repository: 'mediathek',
-		file: fn
-	}).then(function(info) {
-		console.log(info);
+var displayGitHubStatus = function(fn) {
+	var $update_msg = $('p.intro.update');
+	getLastCommit(fn).then(function(post) {
+		if(post.updated) {
+			$update_msg.find('.date').text(post.moment.format('DD.MM.YYYY')).end()
+				.find('.user').text(post.author).end()
+				.find('.msg').text(post.message).attr('href', post.url).end()
+				.show();
+		}
 	});
 };
 
@@ -155,15 +184,17 @@ jQuery(function($) {
 			$.scrollTo($(this).attr('href'), 500, { offset: -40});
 		});
 		$('h1 a.title').avoidWidows();
-		// checkGitHubStatus('readme.md');
+
+		displayGitHubStatus($('.intro').data('fn'));
 	}
+
 
 	$('.posts :header a').avoidWidows();
 	hljs.initHighlightingOnLoad();
 
 	$('.posts .post').clickbox();
 
-	$sidebar = $('.sidebar');
+	var $sidebar = $('.sidebar');
 	$sidebar.affix({
 		offset: {
 			top: function() {
@@ -182,14 +213,9 @@ jQuery(function($) {
 
 	FastClick.attach(document.body);
 
-	//TODO: footer texte schreiben
 	//TODO: github einbinden
-
-	//TODO: kommentar lösung (disqus)
-
 	//TODO: permalinks
 	//TODO: github artikel über contributing
-
 	//TODO: scripte minimieren und kombinieren
 
 });

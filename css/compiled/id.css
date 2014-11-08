@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5 {
       /* IE10+ */
       background: linear-gradient(to bottom, transparent 0%, transparent 49%, rgba(0, 0, 0, 0.9) 100%);
       /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#e6000000',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#e6000000',GradientType=0 );
       /* IE6-9 */ }
 
 .posts {
@@ -165,6 +165,8 @@ h1, h2, h3, h4, h5 {
   @media only screen and (max-width: 480px) {
     .post.single .intro {
       font-size: 100%; } }
+  .post.single .intro.update {
+    display: none; }
 .post.single h2, .post.single h3, .post.single h4, .post.single h5 {
   font-weight: 700;
   margin-top: 40px; }
@@ -278,3 +280,5 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: #c3262c; }
+
+/*# sourceMappingURL=id.css.map */
