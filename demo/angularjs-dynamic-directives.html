@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS Dynamic Directives</title>
+</head>
+<body>
+
+	<div ng-app="cms" ng-controller="ctrl">
+		<content-element element="content"></content-element>
+		<hr>
+		<content-element element="article"></content-element>
+	</div>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+
+	angular.module('cms', []);
+
+	angular.module('cms').controller('ctrl', function($scope) {
+		$scope.content = {
+			type: 'text',
+			data: {
+				content: 'Hallo Welt'
+			}
+		};
+
+		$scope.article = {
+			type: 'article',
+			data: {
+				headline: 'Der Urlaubsartikel',
+				content: [
+					{
+						type: 'text',
+						data: {
+							content: 'Wie geht es Dir?'
+						}
+					},
+					{
+						type: 'text',
+						data: {
+							content: 'Mir geht es gut.'
+						}
+					}
+				]
+			}
+		};
+	});
+
+	angular.module('cms').directive('contentElement', function($http, $compile) {
+
+		// load template, inject it in $elem and link to a newly created scope
+		var render = function($elem, $scope, data) {
+			//create a new scope and provide the content from data.data
+			var elementScope = $scope.$new(true);
+			angular.forEach(data.data, function(value, key) {
+				elementScope[key] = value;
+			});
+
+			//load the template
+			$http.get('template-'+data.type+'.html').then(
+				function templateLoaded(response) {
+					//inject loaded html code
+					$elem.html(response.data);
+
+					//link newly created scope
+					$compile($elem.contents())(elementScope);
+				}, 
+				function templateNotFound() {
+					console.error('template', data.type, 'not found.');
+				}
+			);
+		};
+
+		//define a new directive
+		return {
+			//use it as element <content-element element="...">
+			restrict: 'E',
+			scope: true,
+			link: function($scope, elem, attrs) {
+				var $elem = $(elem);
+				$scope.$watch(attrs.element, function(now) {
+					if(now) {
+						render($elem, $scope, now);
+					}
+				});
+			}
+		}
+	});
+
+	</script>
+
+</body>
+</html>
