@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular UI Router Demo</title>
+</head>
+<body ui-view>
+	
+	
+
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script>
+		//root module
+		angular.module('App', ['ui.router', 'User']);
+
+		angular.module('App').config(function($stateProvider, $locationProvider) {
+			//weg mit der raute
+			$locationProvider.html5Mode(true);
+
+			$stateProvider.state('hello', {
+				abstract: 'true',
+				url: '/',
+				template: '<div class="app"></div>'
+			});
+		});
+
+		//user module - optimaler weise in einer eigenen datei ausgelagert
+		angular.module('User', []);
+
+		angular.module('User').config(function($stateProvider) {
+
+			$stateProvider.state('user', {
+				abstract: 'true',
+				url: '/user',
+				template: '<div class="user" ui-view></div>'
+			});
+
+			$stateProvider.state('user.index', {
+				url: '/index',
+				template: '<ul><li ng-repeat="user in users">{{user}}</li></ul>',
+				controller: function($scope) {
+					$scope.users = ['Peter', 'Paul', 'Mary']
+				}
+			});
+		});
+	</script>
+</body>
+</html>
