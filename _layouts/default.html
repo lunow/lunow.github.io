@@ -63,13 +63,11 @@ title: Paul Lunows Interaktionsdesigner
 						{% elsif page == 1 %}
 						<li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
 						{% else %}
-						<li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+						<li><a href="{{ site.baseurl }}/page/{{page}}">{{ page }}</a></li>
 						{% endif %}
 					{% endfor %}
 				</ul>
 				{% endif %}
-
-
 
 			</div>
 			<div class="col-md-12"><hr></div>
