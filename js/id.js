@@ -95,51 +95,6 @@
 	};
 })(jQuery);
 
-
-/*var PostOnGithub = function(args) {
-	var opts = _.extend({
-		user: 'angular',
-		repository: 'angular.js',
-		file: 'README.md',
-		branch: 'master'
-	}, args);
-	var dfd = $.Deferred();
-	var my = {};
-
-	my.file_name = opts.file;
-	my.branch_name = opts.branch;
-	my.user = new Gh3.User(opts.user);
-	my.repo = new Gh3.Repository(opts.repository, my.user);
-	// my.repo.fetch(my.onFetch);
-
-	var file = {
-		path: opts.file,
-		type: 'file'
-	};
-	my.file = new Gh3.File(file, my.user, opts.repository, opts.branch);
-
-	my.onError = function(err) {
-		console.error('GitHubError:', err);
-		dfd.reject(err);
-	};
-
-	my.onFetchCommits = function(err) {
-		if(err) { return my.onError(err) }
-		var commit = my.file.getLastCommit();
-		var result = {
-			author: commit.author.name,
-			moment: moment(commit.date),
-			message: commit.message,
-			url: my.file.html_url,
-			updated: my.file.commits > 1
-		};
-		dfd.resolve(result);
-	};
-
-	my.file.fetchCommits(my.onFetchCommits);
-	return dfd.promise();
-};*/
-
 var getLastCommit = function(path) {
 	var dfd = $.Deferred();
 	$.ajax({
@@ -174,7 +129,6 @@ var displayGitHubStatus = function(fn) {
 };
 
 jQuery(function($) {
-	$('#debug').css('top', 5000);
 
 	if($('.post.single').length === 1) {
 		$('.post.single .content').toc({ target: '.toc .nav' });
@@ -195,27 +149,29 @@ jQuery(function($) {
 	$('.posts .post').clickbox();
 
 	var $sidebar = $('.sidebar');
-	$sidebar.affix({
-		offset: {
-			top: function() {
-				return $('.container.main').offset().top;
-			},
-			bottom: function() {
-				this.bottom = $('.footer').outerHeight(true) + $('.post-footer').outerHeight(true) + 60;
-				$('#debug').css('top', $(document).height() - this.bottom);
-				return this.bottom;
+	window.letsAffixTheSidebar = function() {
+		$(window).off('.affix');
+		$sidebar.removeData('bs.affix').removeClass('affix affix-top affix-bottom').affix({
+			offset: {
+				top: function() {
+					return $('.container.main').offset().top;
+				},
+				bottom: function() {
+					this.bottom = $('.footer').outerHeight(true) + $('.post-footer').outerHeight(true) + 60;
+					$('#debug').css('top', $(document).height() - this.bottom);
+					return this.bottom;
+				}
 			}
-		}
-	});
+		});
+		$(window).scroll();
+	};
+	window.letsAffixTheSidebar();
 	$(document).on('resize', function() {
 		$sidebar.width($('.col-md-3.helper').width());
 	}).trigger('resize');
 
 	FastClick.attach(document.body);
 
-	//TODO: github einbinden
-	//TODO: permalinks
 	//TODO: github artikel über contributing
 	//TODO: scripte minimieren und kombinieren
-
 });
