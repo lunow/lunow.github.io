@@ -1,10 +1,10 @@
 ---
 
 layout: post
-title: "Single Page Apps mit Deeplinking"
-abstract: "Auch wenn man es bei diesem Titel vielleicht nicht glauben mag, mir gehen diese ganzen Anglizismen auf die Nerven. Aber für diesen Titel ist mir nichts besseres eingefallen. Es geht darum Single Page Applikationen zu bauen, die ihren Zustand über die Browser URL aufrufbar machen. Unverzichtbar wenn man die Vor- und Zurücktasten des Nutzers unterstützten will. Die Marketingabteilung freut sich und die Redakteure kriegen ihre Links mit Sprachkürzel. Friede, Freude, Eierkuchen - nach der Lektüre diesen Artikels."
+title: "Angular UI Router zum laufen kriegen"
+abstract: "Es geht darum Single Page Applikationen zu bauen, die ihren Zustand über die Browser URL aufrufbar machen. Unverzichtbar wenn man die Vor- und Zurücktasten des Nutzers unterstützten will. Der UI Router machts Möglich. Ein kleiner Einstieg in die Thematik."
 categories: AngularJS
-background: maul
+background: ol-boot
 
 ---
 {% raw %}
@@ -12,13 +12,13 @@ background: maul
 
 ## UI Router
 
-Angular bringt einen einfachen Router mit, der stößt aber schnell an seine Grenzen und für die nächsten Versionen sind schon umfangreiche Verbesserungen geplant. Bis dahin nutze ich den UI Router. Er definiert nicht einzelne Adressen, die im Browser aufgerufen einen Controller mit Template verknüpfen, sondern arbeitet mit einem Applikation Status.
+Angular bringt einen einfachen Router mit, der stößt aber schnell an seine Grenzen und für die nächsten Versionen sind schon [umfangreiche Verbesserungen](https://github.com/angular/router) geplant. Bis dahin nutze ich den [UI Router](https://github.com/angular-ui/ui-router). Er definiert nicht einzelne Adressen, die im Browser aufgerufen einen Controller mit einem Template verknüpfen, sondern arbeitet mit einem Applikation Status.
 
 Man definiert einen Zustand nach dem anderen und kann dabei festlegen ob dieser in der URL reflektiert wird. Dabei können verschiedene Zustände der Applikation aufeinander aufbauen. Dazu später mehr, als erstes muss der neue Router installiert werden.
 
 	bower install --save angular-ui-router
 
-Man bindet dann die Datei `bower_components/angular-ui-router/release/angular-ui-router.js` in seine `index.html` ein und definiert die Abhängigkeit in der globalen App.
+Man bindet die Datei `bower_components/angular-ui-router/release/angular-ui-router.js` in seine `index.html` ein und definiert die Abhängigkeit in der globalen App.
 
 	angular.module('App', [
 		'ui.router'
@@ -39,7 +39,7 @@ Der UI Router bringt eine Directive, einen Service und seinen Provider mit. Mit 
 		});
 	});
 
-Im HTML Template müssen zwei Dinge vernetzt werden, zum einen die Verbindung zu unserer Applikation
+Im HTML Template müssen zwei Dinge verbunden werden: Zum einen die Verbindung zu unserer Applikation
 
 	<html ng-app="App">
 
@@ -54,7 +54,7 @@ Anschließend einen kleinen Testserver starten, die `index.html` aufrufen - es p
 
 ## Weg mit der Raute
 
-Wer von einer "Ajax Anwendung" hin zu einer extrem coolen SPA kommen will muss die Raute aus der URL entfernen. Zum Glück geht das easy. Angular muss angewiesen werden die Adressen ohne die Raute zu generieren:
+Wer von einer "Ajax Anwendung" hin zu einer extrem coolen SPA kommen will muss die Raute aus der URL entfernen. Zum Glück geht das leicht. Angular muss angewiesen werden die Adressen ohne die Raute zu generieren:
 
 	angular.module('App').config(function($stateProvider, $locationProvider) {
 		//weg mit der raute
@@ -62,7 +62,7 @@ Wer von einer "Ajax Anwendung" hin zu einer extrem coolen SPA kommen will muss d
 
 		//...
 
-Der Server, und hier liegt der Knackpunkt, muss angewiesen werden alle Anfragen, bzw. alle Anfragen die URLs unserer SPA sind, an die `index.html` Datei zu senden.
+Der Server, und hier liegt der Knackpunkt, muss alle Anfragen, bzw. alle Anfragen die URLs unserer SPA sind, an die `index.html` Datei senden.
 
 Zu Demozwecken nutze ich ein einfaches Node Script. Im Agentur oder Startup Kontext wäre jetzt der richtige Moment um mit dem Serveradministrator oder den Backendentwicklern einen Plan zu schmieden wie das am besten umgesetzt werden kann.
 
@@ -132,16 +132,75 @@ Der erste State setzt den Schlüssel `abstract` auf `true`. Damit definiert man 
 Damit bekommt man eine einfache Möglichkeit einen Namespace für die verschiedenen Module zu erstellen damit sich die Adressen nicht vermischen.
 
 
+## Zwischen den Zuständen navigieren
+
+Der UI Router bringt ein paar Hilfsmittel mit um den User zwischen den verschiedenen Zuständen der App hin und her zu schicken.
+
+Am einfachsten ist ein direkter Link mit der Direktive `ui-sref` im HTML. Dazu gibt man den Namen eines Zustandes an.
+
+	<a ui-sref="user.index">Show all users</a>
+
+Den Rest erledigt der Router.
+
+Um im Controller den Nutzer weiter zu leiten, oder in einer eigenen Direktive einen Link zu erzeugen, nutzt man den Service `$state`.
+
+	angular.module('App').controller('redirect', function($state) {
+		if(everything_ok) {
+			$state.go('user.index');
+		}
+	});
+
+Das wars. Damit lässt sich schon ein Menü aufbauen.
 
 
+## Parameter in der URL übertragen
 
-	
+Nun gibt es nicht nur die Nutzerübersicht sondern auch einzelne Nutzerprofile. Der Nutzername soll dabei in der URL zur eindeutigen Identifikation des entsprechenden Datensatzes dienen.
+
+	$stateProvider.state('user.view', {
+		url: '/view/:name',
+		controller: 'UserViewCtrl'
+	});
+
+Der Controller ist namentlich genannt, also muss er definiert werden. Über den Service `$stateParams` bekommt man Zugriff auf die Daten as der URL.
+
+	angular.module('App').controller('UserViewCtrl', function($scope, $stateParams, API) {
+		API.User.byName($stateParams.name).then(function(user) {
+			$scope.user = user;
+		});
+	});
+
+Wenn das kein schlanker Controller ist!
+
+Im HTML muss man eventuell auch das eine oder andere Mal auf das Profil eines Nutzers verweisen. 
+
+	<a ui-sref="user.view('paul')">View Pauls Profile</a>
+
+Das wäre statisch gesetzt, der Wert von `ui-sref` wird mit dem aktuellen Scope evaluiert, es lässt sich also dynamisch aufbauen.
+
+	<ul>
+		<li ng-repeat="user in users">
+			<a ui-sref="user.view(user)">{{user}}</a>
+		</li>
+	</ul>	
 
 
+## Fazit
 
-- $state.go(), $state.href()
-- Mehrsprachigkeit
-- uref Directive
-- Weiterleitungen
-- Resolves
-- Berechtigungen
+Das war ein kleiner Kratzer an der Oberfläche vom UI Router. Die Dokumentation und das restliche Internet zeigen all die anderen Dinge die noch mit diesem mächtigen Tool möglich sind.
+
+Ich empfehle von Anfang an über die verschiedenen Zustände der neuen SPA nachzudenken. Selbst wenn sie nicht in der URL reflektiert werden ist es ein sinnvoller Weg die verschiedenen Einzelteile der App zu verbinden.
+
+Und immer dran denken, wenn Doku, Stackoverflow und Google nicht weiterhelfen: [RTFC](https://code.google.com/p/rtfc/). 
+
+
+### Weitere Themen
+
+Ich habe mir viel mehr vorgenommen für diesen Artikel, aber er wurde einfach nicht fertig. Wenn Du Interesse an einem der folgenden Themen hast, oder noch ganz andere Fragen auftauchen, hinterlasse bitte einen kurzen Hinweis in den Kommentaren.
+
+- Mehrsprachigkeit mit dem UI Router realiseren
+- Mit einer eigenen Direktive `ui-sref` automatisieren
+- Weiterleitungen aus allen Lebensbereichen
+- Asynchrone Daten laden während ein neuer Zustand aufgerufen wird
+- Zustände mit einer Backendnutzerverwaltung schützen
+
