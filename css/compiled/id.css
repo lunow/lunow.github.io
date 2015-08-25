@@ -202,39 +202,62 @@ h1, h2, h3, h4, h5 {
   .post.single a:hover {
     color: #c3262c; }
 .post.single .toc {
-  border: 1px solid #e1e1e1;
-  border-width: 1px 1px 0 1px;
   margin-top: 20px; }
-  .post.single .toc .nav li {
-    margin-top: 0 !important; }
-    .post.single .toc .nav li a {
-      -webkit-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      -o-transition: all 0.5s ease-out;
-      transition: all 0.5s ease-out;
-      border: 0px none;
-      border-radius: 0;
-      text-decoration: none;
-      border-bottom: 1px solid #e1e1e1; }
-      .post.single .toc .nav li a.level-h3 {
-        padding-left: 30px; }
-      .post.single .toc .nav li a.level-h4 {
-        padding-left: 50px; }
-      .post.single .toc .nav li a:hover {
-        -webkit-transition: all 0.1s;
-        -moz-transition: all 0.1s;
-        -o-transition: all 0.1s;
-        transition: all 0.1s;
-        background: #e6e6e6;
+  .post.single .toc .nav {
+    border: 1px solid #e1e1e1;
+    border-width: 1px 1px 0 1px; }
+    .post.single .toc .nav li {
+      margin-top: 0 !important; }
+      .post.single .toc .nav li a {
+        -webkit-transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+        border: 0px none;
+        border-radius: 0;
+        text-decoration: none;
+        border-bottom: 1px solid #e1e1e1; }
+        .post.single .toc .nav li a.level-h3 {
+          padding-left: 30px; }
+        .post.single .toc .nav li a.level-h4 {
+          padding-left: 50px; }
+        .post.single .toc .nav li a:hover {
+          -webkit-transition: all 0.1s;
+          -moz-transition: all 0.1s;
+          -o-transition: all 0.1s;
+          transition: all 0.1s;
+          background: #e6e6e6;
+          color: black; }
+      .post.single .toc .nav li.active a {
+        background: #e6e6e6 !important;
         color: black; }
-    .post.single .toc .nav li.active a {
-      background: #e6e6e6 !important;
-      color: black; }
+
+.job {
+  background: #3C3C3C;
+  color: #fff;
+  padding: 10px 20px 20px; }
+  .job a {
+    display: block;
+    background: #c3262c;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px; }
 
 .sidebar.affix {
   top: 0px; }
 .sidebar.affix-bottom {
   position: absolute; }
+.sidebar .job {
+  padding: 5px 10px; }
+  .sidebar .job h3 {
+    margin-top: 15px; }
+  .sidebar .job p {
+    line-height: 140%; }
+.sidebar ul {
+  margin-top: 10px; }
 
 .pagination {
   margin: 0; }

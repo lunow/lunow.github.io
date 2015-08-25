@@ -1,4 +1,14 @@
 /*global hljs, FastClick, moment */
+/*
+
+	
+	SMART DEVELOPERS CHECKING THE SOURCECODE
+
+	interessted in a new, meaningful job? i have one
+	http://nepos.io/jobs/en.html
+
+
+*/
 
 
 (function($) {
@@ -95,6 +105,8 @@
 	};
 })(jQuery);
 
+/*
+DEPRECATED - i made the repo private
 var getLastCommit = function(path) {
 	var dfd = $.Deferred();
 	$.ajax({
@@ -127,19 +139,20 @@ var displayGitHubStatus = function(fn) {
 		}
 	});
 };
+*/
 
 jQuery(function($) {
 
 	if($('.post.single').length === 1) {
 		$('.post.single .content').toc({ target: '.toc .nav' });
-		$('.toc a').on('click', function(event) {
+		$('.toc a:not([target])').on('click', function(event) {
 			event.preventDefault();
 			window.hash = $(this).attr('href');
 			$.scrollTo($(this).attr('href'), 500, { offset: -40});
 		});
 		$('h1 a.title').avoidWidows();
 
-		displayGitHubStatus($('.intro').data('fn'));
+		// displayGitHubStatus($('.intro').data('fn'));
 	}
 
 
@@ -171,7 +184,4 @@ jQuery(function($) {
 	}).trigger('resize');
 
 	FastClick.attach(document.body);
-
-	//TODO: github artikel über contributing
-	//TODO: scripte minimieren und kombinieren
 });

@@ -289,11 +289,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 		}
 
 		.toc {
-			border:1px solid #e1e1e1;
-			border-width:1px 1px 0 1px;
 			margin-top:20px;
 
 			.nav {
+				border:1px solid #e1e1e1;
+				border-width:1px 1px 0 1px;
+
 				li {
 					margin-top:0 !important;
 
@@ -330,12 +331,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	}
 }
 
+.job {
+	background:#3C3C3C;
+	color:#fff;
+	padding:10px 20px 20px;
+
+	a {
+		display:block;
+		background:$red;
+		color:#fff !important;
+		text-decoration: none !important;
+		padding:10px 20px;
+		text-align: center;
+		font-weight: bold;
+		margin-top:20px;
+
+	}
+}
+
 .sidebar {
 	&.affix {
 		top:0px;
 	}
 	&.affix-bottom {
 		position: absolute;
+	}
+
+	.job {
+		padding:5px 10px;
+
+		h3 {
+			margin-top:15px;
+		}
+
+		p {
+			line-height:140%;
+		}
+	}
+
+	ul {
+		margin-top:10px;
 	}
 }
 
