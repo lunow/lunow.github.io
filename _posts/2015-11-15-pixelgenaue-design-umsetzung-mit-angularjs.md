@@ -4,7 +4,7 @@ layout: post
 title: "Pixelgenaue Design Umsetzung von AngularJS Apps"
 abstract: "Diese Webseite muss genau so aussehen wie in meiner Photoshop Vorlage. Die Antwort von jedem Entwickler auf diese Frage sollte ein klares: Geht nicht sein. Das Internet ist nicht dafür gemacht Layouts genau so anzuzeigen. Es sei denn... Dieser Artikel bietet einen Ansatz zur Realisierung."
 categories: AngularJs
-background: marktplatz
+background: coming-and-going
 
 ---
 
