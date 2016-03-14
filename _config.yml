@@ -1,10 +1,12 @@
 name: Paul Lunows Interaktiondesigner
 title: Paul Lunows Interaktiondesigner
+future: true
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 permalink: '/:year/:title'
 paginate: 15
 paginate_path: "page/:num"
 url: http://www.interaktionsdesigner.de
 gems:
   - jekyll-redirect-from
+  - jekyll-paginate
