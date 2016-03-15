@@ -1,5 +1,5 @@
 	<div class="container">
-		<!--<div class="row">
+		<div class="row">
 			<div class="col-md-12">
 				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 					<ins class="adsbygoogle"
@@ -10,14 +10,11 @@
 					(adsbygoogle = window.adsbygoogle || []).push({});
 				</script>
 			</div>
-		</div>-->
+		</div>
 		<div class="row footer">
 			<div class="col-md-4">
 				{% include contact.html %}
 			</div>
-			<!-- <div class="col-md-4">
-				{% include jobs.html %}
-			</div> -->
 			<div class="col-md-4">
 				{% include about.html %}
 			</div>
@@ -26,7 +23,7 @@
 			</div>
 			<div class="col-md-12">
 				<hr>
-				<p><small>&copy; 2015 Ein Blog von <a href="http://www.paul-lunow.de" title="Paul Lunow">Paul Lunow</a></small></p>
+				<p><small>&copy; {{ site.time | date: '%Y' }} Ein Blog von <a href="http://www.paul-lunow.de" title="Paul Lunow">Paul Lunow</a></small></p>
 			</div>
 		</div>
 	</div>
