@@ -1,6 +1,6 @@
 # id2014
 
-Start blogging on GitHub. Its fun and easy. Here you find everything I used to create the blog http://www.interaktiondesigner.de
+Start blogging on GitHub. Its fun and easy. Here you find everything I used to create the blog http://www.interaktionsdesigner.de
 
 
 ## Local Development
