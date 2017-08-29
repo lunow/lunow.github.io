@@ -492,3 +492,5 @@ Wenn der eigene Ordnungssinn überwiegt und man anfängt die Applikation auf Dat
 Und alles Rund um das hier nicht man angekratzte Thema Directives gibt es zum Glück auch schon im Blog. [AngularJS Directives richtig nutzen](http://www.interaktionsdesigner.de/2014/angularjs-directives-richtig-nutzen/).
 
 Bleibt nur noch zu sagen: **Less Code, more Fun!**
+
+{% endraw %}

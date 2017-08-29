@@ -274,3 +274,5 @@ Durch `$compile()` kümmert sich das großartige Angular um den Rest.
 Ausgelassen habe ich den Abschnitt zum testen von Directiven. Wenn Du Dich in der Lage siehst diesen zu schreiben bist Du herzlich eingeladen einen Pull Request per GitHub zu senden, ich werde es dann umgehend veröffentlichen.
 
 Ansonsten viel Spaß beim Kapseln von Logik und Darstellungscode. Es lohnt sich!
+
+{% endraw %}

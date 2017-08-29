@@ -175,3 +175,5 @@ Mit diesen Mittelen baut man äußerst saubere Interfaces auf. Die Struktur ist 
 ## Fazit
 
 Dieser Einstieg soll die Grundkonzepte verdeutlichen. Nachdem man ein bisschen damit rumgespielt hat, lohnt es sich die entsprechende Dokumentation durchzulesen. Vorallem wenn man auf Situationen stößt in denen dieser einfache Aufbau nicht ausreicht. Bevor man Angular anfängt zu hacken, erstmal die Doku und Stackoverflow durchsuchen! Viel Spaß.
+
+{% endraw %}

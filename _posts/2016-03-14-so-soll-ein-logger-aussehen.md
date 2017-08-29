@@ -197,3 +197,5 @@ Alle Logausgaben zeigen in den Chrome DevTools auf die Ursprungsdatei, also dem 
 Das lässt sich leicht ändern in dem man in den Einstellungen der DevTools das Script `logger.js` als Blackbox hinterlegt! Wirklich einfach und [hier](https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/step-code) nachzulesen, bitte bis "Blackbox third-party code" springen.
 
 Eine großartige Funktion - alles ist ein Objekt.
+
+{% endraw %}

@@ -133,3 +133,5 @@ Es macht wirklich großen Spaß diese kleinen Helfer zu schreiben. Viel Arbeit i
 Das komplette Script befindet sich auf [hier auf GitHub](https://github.com/lunow/plz).
 
 Ich wünsche frohes ausdenken und Optimierung des täglichen Wahnsinns!
+
+{% endraw %}

@@ -257,3 +257,5 @@ Unter Ausnutzung des [Angular Caches](https://docs.angularjs.org/api/ng/service/
 Klingt für mich nach Zukunft. Oder nach einem total coolen AngularJS CMS. Denn wenn man so einfach Inhalte darstellt, lässt sich genau so einfach der Inhalt bearbeiten!
 
 Viel Spaß beim Inhaltsseiten anlegen und weiter denken.
+
+{% endraw %}
