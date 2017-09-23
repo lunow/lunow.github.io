@@ -4,7 +4,7 @@ layout: post
 title: "Open corresponding files in VSCode"
 abstract: "VSCode becomes my default editor quite fast. It's a great software and the fact that a browser is currently powering your web development environment is quite fascinating. Most of all because you can write extensions with the knowledge you already have. So I tried."
 categories: VSCode
-background: wolken
+background: ol-dance
 
 ---
 
