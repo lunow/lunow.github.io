@@ -2,18 +2,18 @@
 
 layout: post
 title: "Konzentriert und fit im Home Office"
-abstract: "Zumindest in meiner Wahrnehmungsblase hat es allen anschein, dass wir noch eine ganze Weile im Home Office bleiben. Und hier sollten wir fit, gesund und konzentriert sein. Das ist gar nicht so schwer."
+abstract: "Zumindest in meiner Wahrnehmungsblase hat es allen Anschein, dass wir noch eine ganze Weile im Home Office bleiben. Und hier sollten wir fit, gesund und konzentriert sein. Das ist gar nicht so schwer."
 categories: HomeOffice,Allgemein
 background: kuehe
 
 ---
 
 
-Zumindest in meiner Wahrnehmungsblase hat es allen anschein, dass wir noch eine ganze Weile im Home Office bleiben. Und hier sollten wir fit, gesund und konzentriert sein. Das ist gar nicht so schwer. Die Lösung heißt: Pomodoro.
+Die Lösung heißt: Pomodoro.
 
 ## Produktivitätswerkzeug Pomodoro
 
-Der Grundgedanke ist sehr einfach: 25 Minuten konzentrierte Arbeit, 5 Minuten Pause. Im Büro konnte ich das nie umsetzen. Zu viele Ablenkungen, nicht zuletzt für die Kollegen wenn jemand alle 25 Minuten im Büro durch die Gegend hampelt. Aber zuhause guckt ein niemand schräg an.
+Der Grundgedanke ist sehr einfach: 25 Minuten konzentrierte Arbeit, 5 Minuten Pause. Im Büro konnte ich das nie umsetzen. Zu viele Ablenkungen, nicht zuletzt für die Kollegen wenn jemand alle 25 Minuten im Büro durch die Gegend hampelt. Aber zuhause guckt ein niemand schräg an. Jedenfalls nicht schräger als sonst.
 
 Also ist es ein Versuch wert. Das Herzstück ist der Timer. Ich nutze [Emphasis](https://apps.apple.com/us/app/emphasis-focus-timer/id733300214) auf meinem Telefon, das neben der Tastatur liegt und einen Countdown anzeigt.
 
@@ -25,7 +25,7 @@ In diesen 25 Minuten ist wirklich Arbeiten angesagt. Nichts weiter. Keine E-Mail
 
 ## Fünf Minuten Pause
 
-Sofort wenn es piept lasse ich alles stehen und liegen und tue etwas anderes. Einfache Sportübungen eigenen sich hervorragend: Liegestützt, Planking, Kniebeugen, Situps, usw. usf. Um die kurze Zeit effektiver zu nutzen bietet sich das Tabata-Intervall Training an. 30 Sekunden Vollgas, 10 Sekunden Pause - in sieben Wiederholungen. Auch Springseilspringen trainiert enorm gut.
+Sofort wenn es piept lasse ich alles stehen und liegen und tue etwas anderes. Einfache Sportübungen eigenen sich hervorragend: Liegestützt, Planking, Kniebeugen, Situps, usw. usf. Um die kurze Zeit effektiver zu nutzen bietet sich das Tabata-Intervall Training an. 30 Sekunden Vollgas, 10 Sekunden Pause - in sieben Runden. Auch Springseilspringen trainiert enorm gut.
 
 Einzelne Tage lassen sich auch hervorragend mit einer Challenge belegen: 500 Liegestütze an einem Tag. Also in jeder einzelnen Pomodoro-Pause 20 Liegestütze.
 
@@ -49,7 +49,7 @@ Gerade bei der Entwicklung habe ich festgestellt, dass eine fünf Minuten Sportp
 
 ### Extra-Meile
 
-Auch in dem kurzen Zeitraum ist eine Aufgabe hin und wieder schon nach der Hälfte der Zeit erledigt. Aufeinmal bleibt Zeit die Arbeit zu perfektionieren. Kommentare und Dokumentation schreiben, automatisierte Tests hinzufügen, die Kollegen informieren, Notizen für einen Blogartikel schreiben. Die geschenkten Minuten lassen sich immer sinnvoll nutzen!
+Auch in dem kurzen Zeitraum ist eine Aufgabe hin und wieder schon nach der Hälfte der Zeit erledigt. Aufeinmal bleibt Zeit die Arbeit zu perfektionieren. Kommentare und Dokumentation schreiben, automatisierte Tests hinzufügen, die Kollegen informieren, Notizen für einen Blogartikel notieren. Die geschenkten Minuten lassen sich immer sinnvoll nutzen!
 
 
 [Das Internet ist voll von ausführlichen Anleitungen, Hintergründen, Programmen und Apps zum Thema Pomodoro](https://www.google.com/search?q=pomodoro+technique). Stell Dir also einen Timer und beschäftige dich 25 Minuten damit. Anschließend fünf Minuten Liegestütze und dann 25 Minuten für die Priorisierung der heutigen Aufgaben. Fünf Minuten Kniebeugen und dann mit Vollgas und voller Konzentration in die größte und schwierigste Aufgabe des Tages.
