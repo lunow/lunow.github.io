@@ -10,7 +10,7 @@ background: ol-ohne-titel
 
 Einer der Gründe warum ich [Notion](https://www.notion.so) inzwischen auch für alle meine privaten Notizen einsetze, ist der Fokus Modus. Legt man eine neue Seite an und beginnt zu tippen, verschwinden alle Steuerelemente und die gesamte Konzentration bündlelt sich im Schreiben.
 
-<img src="../img/notion/fokus.png">
+<img src="../img/notion/fokus.png" class="full-width">
 
 Aber mit ein paar Klicks lassen sich komplexe Datenstrukturen abbilden! Zum Beispiel um Ideen zu sammeln und im Team darüber abzustimmen und zu diskutieren.
 
@@ -21,7 +21,7 @@ In [Notion](https://www.notion.so) lassen sich zwei Datenbank anlegen: Tabellen 
 
 Startet man also mit einer leeren Seite und tippt ein `/` öffnet sich ein Menü, in dem die verschiedenen Inhaltselemente ausgewählt werden können. Ein Klick auf "Table - inline" fügt eine Tabelle ein, ich nenne sie "Ideen". 
 
-<img src="../img/notion/add_content.png">
+<img src="../img/notion/add_content.png" class="full-width">
 
 Vielleicht erinnert sich der ein oder andere an die [Datenbanknormalisierung](https://de.wikipedia.org/wiki/Normalisierung_(Datenbank)) aus dem Unterricht oder Studium. Falls nicht, gilt als Faustregel: Wenn man sich dabei wiederfindet, in mehreren Tabellen immer wieder die gleichen Felder anzulegen und Formeln zu kopieren, dann hat man einen Fehler gemacht. In Notion wie beim Programmieren ist der Regel zu folgen: Don't repeat yourself.
 
@@ -67,7 +67,7 @@ Der Inhalt des Feldes "Bewertung" wird von Notion in eine Zahl umgewandelt. Nun 
 
 Nun ist es der Fall, dass der eine oder andere Gast wild herumklickt und die schöne Struktur erweitert. Das geht natürlich gar nicht. Deshalb will ich die eben angelegten Eigenschaften schützen. Dazu klickt man innerhalb des Tabellenelements, links neben dem "New" Button, auf die drei Punkte und wählt die Option "Open as page".
 
-<img src="../img/notion/database_lock.png">
+<img src="../img/notion/database_lock.png" class="full-width">
 
 Auf der sich öffnenden Seite befindet sich nur noch die eben angelegte Tabelle. Rechts oben auf der Seite(!), neben dem "Share" Link befinden sich wieder drei Punkte. Die erste Option des Menüs heißt "Database lock" und ist genau was wir brauchen. Es lassen sich Inhalte anlegen, aber die Struktur kann nicht mehr verändert werden. Aktivieren!
 
@@ -85,7 +85,7 @@ Nichts leichter als das! Eine neue Eigenschaft anlegen mit dem Namen "Bewertet v
 
 "Select an exisisting relation..." - es gibt bisher nur eine, die Bewertungen. Als Property das Feld "Autor" wählen und im Feld "Calculate" ist automatisch der Wert "Show original" ausgewählt. Fertig!
 
-<img src="../img/notion/rollup.png">
+<img src="../img/notion/rollup.png" class="full-width">
 
 
 ### Durchschnitt der Bewertungen
@@ -97,7 +97,7 @@ Analog funktioniert es auch mit der Anzeige der Bewertungen. Wieder ein Feld "Ro
 
 Das war ja einfach! Nur ist die Tabelle "Ideen" recht unübersichtlich geworden. Links neben dem "New" Button, hinter den drei Punkten versteckt sich der Menüpunkt "Properties". Dieser kontrolliert welche Spalten angezeigt werden sollen. Ich mache alles aus, außer "Name", "Tags" und "Durchschnittlicher Bewertung". Per Drag-and-drop lässt sich die Reihenfolge der Spalten verändern - genauso die Spaltenbreite.
 
-<img src="../img/notion/properties.png">
+<img src="../img/notion/properties.png" class="full-width">
 
 Ebenfalls hinter den drei Punkten, ganz unten im Menü, befindet sich die Option "Wrap cells". Diese kontrolliert ob der Inhalt einer Zelle abgeschnitten oder angezeigt werden soll. Falls mal mehr als ein Wort in einer Zelle steht.
 
@@ -108,7 +108,7 @@ Ein sehr mächtiges Konzept möchte ich noch vorstellen. Notion erlaubt untersch
 
 Denn in einer langen Liste von Ideen, weiß ich vielleicht nicht welche ich noch nicht bewertet habe. Fährt man mit der Maus über den Titel der Tabelle, erscheint rechts daneben der Link "+ Add a view". Diesem gibt man einen Namen "Noch nicht bewertete Ideen" und bleibt beim Typ "Tabelle". 
 
-<img src="../img/notion/add_a_view.png">
+<img src="../img/notion/add_a_view.png" class="full-width">
 
 Über die drei Punkte, rechts oben, den Menüpunkt "Filter" auswählen. Im Filter-Menü ist unten der Link "+ Add a filter" und man fügt hinzu einen einzelnen Filter. Keine Gruppe.
 
@@ -121,7 +121,7 @@ Jede einzelne Idee und jede Bewertung ist nun eine eigene Notion Seite die mit I
 
 Notion ist ein so großartiges und vielfältiges Werkzeug, dass ich es inzwischen für fast alles benutze. Vom Schreiben über das Planen, als CRM, Aufgabenverwaltung und Zettelkasten.
 
-<img src="../img/notion/ideen_sammlung.png">
+<img src="../img/notion/ideen_sammlung.png" class="full-width">
 
 Das Team dahinter ist großartig, es bietet einen super schnellen Support (rechts unten ist ein sehr unauffälliges Fragezeichen) und wird ständig weiter entwickelt.
 

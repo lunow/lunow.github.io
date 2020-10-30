@@ -248,6 +248,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 			line-height:160%;
 		}
 
+		img.full-width {
+			width: 90%;
+		}
+
 		code {
 			font-family:Inconsolata !important;
 			color:$red;
