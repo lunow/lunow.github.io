@@ -173,6 +173,9 @@ h1, h2, h3, h4, h5 {
 .post.single p, .post.single li {
   font-size: 115%;
   line-height: 160%; }
+.post.single img.full-width {
+  width: 90%;
+}
 .post.single code {
   font-family: Inconsolata !important;
   color: #c3262c;
