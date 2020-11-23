@@ -4,7 +4,7 @@ layout: post
 title: "Datenbanken in Notion"
 abstract: "Notion ist für mich die Entdeckung des letzten Jahres! Wir haben es urspünglich als Firmen-Wiki eingesetzt um unser Wissen besser zu strukturieren, aber jeden Tag übernimmt es mehr Aufgaben. Notion ist ein Werkzeug, mit dem praktisch alles umgesetzt werden kann. Zum Beispiel eine Seite um sich gemeinsam über Ideen auszutauschen."
 categories: Notion
-background: ol-ohne-titel
+background: notion-office-1
 
 ---
 
