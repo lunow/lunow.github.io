@@ -4,9 +4,16 @@ future: true
 markdown: kramdown
 highlighter: rouge
 permalink: '/:year/:title'
-paginate: 15
-paginate_path: "page/:num"
+pagination:
+  enabled: true
+  per_page: 15
+  permalink: '/page/:num/'
+  title: ' - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
 url: http://www.interaktionsdesigner.de
 gems:
   - jekyll-redirect-from
-  - jekyll-paginate
+  - jekyll-paginate-v2
