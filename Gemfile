@@ -1,4 +1,1 @@
-group :jekyll_plugins do
-	gem "jekyll-paginate-v2"
-	gem "jekyll-feed"
-end
+gem "github-pages", "~> 214", group: :jekyll_plugins
