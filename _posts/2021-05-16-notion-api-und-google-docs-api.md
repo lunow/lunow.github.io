@@ -27,48 +27,47 @@ https://notion.so/[workspace name]/**[DATABASE ID]**
 Mit diesen zwei Informationen, lässt sich ein einfaches Script schreiben, welches alle Einträge aus der Datenbank zieht:
 
 ```javascript
+const { Client } = require('@notionhq/client');
+const async = require('async');
+const _ = require('lodash');
 
-	const { Client } = require('@notionhq/client');
-	const async = require('async');
-	const _ = require('lodash');
+const AUTH_TOKEN = '[YOUR TOKEN HERE]';
+const DATABASE_ID = '[YOUR DATABASE ID HERE]';
 
-	const AUTH_TOKEN = '[YOUR TOKEN HERE]';
-	const DATABASE_ID = '[YOUR DATABASE ID HERE]';
+const notion = new Client({ 
+	auth: AUTH_TOKEN 
+});
 
-	const notion = new Client({ 
-		auth: AUTH_TOKEN 
-	});
+const fetchDatabase = async() => {
+	let results = [];
+	let finished = false;
+	
+	// QUERY ALL ENTRIES FROM DATABASE
+	await async.until(
+		//test
+		function test(cb) {
+			cb(null, finished);
+		},
 
-	(async () => {
-		let results = [];
-		let finished = false;
-		
-		// QUERY ALL ENTRIES FROM DATABASE
-		await async.until(
-			//test
-			function test(cb) {
-				cb(null, finished);
-			},
-
-			//iteratee
-			async function() {
-				const response = await notion.databases.query({ 
-					database_id: DATABASE_ID,
-					start_cursor: results.length > 0 ? _.last(results).id : undefined,
-					sorts: [
-						{
-							property: 'Sort',
-							direction: 'ascending'
-						}
-					]
-				});
-				results.push(...response.results);
-				finished = !response.has_more;
-				
-			}
-		);
-		console.log('all pages have been fetched', results.length);
-	})();
+		//iteratee
+		async function() {
+			const response = await notion.databases.query({ 
+				database_id: DATABASE_ID,
+				start_cursor: results.length > 0 ? _.last(results).id : undefined,
+				sorts: [
+					{
+						property: 'Sort',
+						direction: 'ascending'
+					}
+				]
+			});
+			results.push(...response.results);
+			finished = !response.has_more;
+			
+		}
+	);
+	console.log('all pages have been fetched', results.length);
+};
 ```
 
 Und zack, schon fertig! Nach wenigen Augenblicken befindet sich die gesamte Datenbank für die weitere Verarbeitung in der Variable `results`.
@@ -85,21 +84,20 @@ Ich mag lodash und async. Sie machen mir das Leben leichter und den Code lesbare
 Nun liegt eine lange Liste von Einträgen der Datenbank vor. Alle in der Datenbank angelegten Attribute befinden sich darin, es fehlt aber der Seiteninhalt. Dieser besteht aus einer Reihe Blocks und hier ist Vorsicht geboten, denn nicht alle Blocks werden über die API ausgegeben.
 
 ```javascript
+const fetchPageContent = async () => {
 
-	(async () => {
-
-		await async.eachSeries(results, async function(page) {
-			const response = await notion.blocks.children.list({ 
-				block_id: page.id 
-			});
-			if(response.has_more) {
-				console.log('WARNING!!! Page has more content. Implement the loop you lazy...');
-			}
-
-			console.log('page content:', response.results);
+	await async.eachSeries(results, async function(page) {
+		const response = await notion.blocks.children.list({ 
+			block_id: page.id 
 		});
+		if(response.has_more) {
+			console.log('WARNING!!! Page has more content. Implement the loop you lazy...');
+		}
 
-	})();
+		console.log('page content:', response.results);
+	});
+
+};
 ```
 
 Über die Blocks API werden alle Blöcke der Seite ausgelesen. Hier ist die Abfrage ebenfalls auf 100 Ergebnisse limitiert, bei sehr langen Seiten muss also auch in einer Schleife abgefragt werden.
@@ -128,20 +126,19 @@ Nun muss der eben angelegte Account noch einem Dokument zugewiesen werden. Dafü
 Inzwischen ist es endlich super einfach auf die Google API zuzugreifen.
 
 ```javascript
+const docs = require("@googleapis/docs");
+const auth = new docs.auth.GoogleAuth({
+	keyFilename: 'creds.json',
+	scopes: ['https://www.googleapis.com/auth/documents']
+});
+const authClient = await auth.getClient();
 
-	const docs = require("@googleapis/docs");
-	const auth = new docs.auth.GoogleAuth({
-		keyFilename: 'creds.json',
-		scopes: ['https://www.googleapis.com/auth/documents']
-	});
-	const authClient = await auth.getClient();
+const client = await docs.docs({
+	version: 'v1',
+	auth: authClient
+});
 
-	const client = await docs.docs({
-		version: 'v1',
-		auth: authClient
-	});
-
-	const DOCUMENT_ID = '[INSERT YOUR ID HERE]';
+const DOCUMENT_ID = '[INSERT YOUR ID HERE]';
 ```
 
 Die `creds.json` Datei liegt im Root Verzeichnis, die Google Docs API muss über die Console freigeschaltet sein und die ID steht wie bei Notion in der URL.
@@ -156,30 +153,29 @@ Was hilft ist das Node Modul selbst, niemand hält Dich davon ab im `node_module
 Letztendlich ist das hinzufügen eines Absatzes aber leicht. Über ein `batchUpdate` wird eine Reihe an Befehlen an das Doc gesendet.
 
 ```javascript
+const updateGoogleDoc = async () => {
 
-	(async () => {
-
-		const updateResponse = await client.documents.batchUpdate({
-			documentId: DOCUMENT_ID,
-			requestBody: {
-				requests: [
-					{
-						insertText: {
-							endOfSegmentLocation: {},
-							text: 'Hello World!'
-						}
-					},
-					{
-						insertPageBreak: {
-							endOfSegmentLocation: {}
-						}
+	const updateResponse = await client.documents.batchUpdate({
+		documentId: DOCUMENT_ID,
+		requestBody: {
+			requests: [
+				{
+					insertText: {
+						endOfSegmentLocation: {},
+						text: 'Hello World!'
 					}
-				]
-			}
-		});
-		console.log('done!', updateResponse);
+				},
+				{
+					insertPageBreak: {
+						endOfSegmentLocation: {}
+					}
+				}
+			]
+		}
+	});
+	console.log('done!', updateResponse);
 
-	})();
+};
 ```
 
 Mit diesem Schnipsel wird bei jedem Aufruf der Absatz "Hello World!" und ein Seitenumbruch hinzugefügt. Nun fehlen nur noch ein paar Schleifen um die beiden Teile miteinander zu verbinden. Viel Spaß!
