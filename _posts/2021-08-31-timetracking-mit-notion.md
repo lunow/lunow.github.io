@@ -8,6 +8,7 @@ background: trioson
 
 ---
 
+
 # Zeiterfassung in Notion
 
 Ich habe eine Reihe von Apps auf dem Computer und auf dem Telefon mit denen ich mal meine Arbeitszeit erfasst habe. Unzählige Tabellen, Notizen und Dokumente und einen ganzen Stapel voller halb beschriebener Notizbücher.
