@@ -42,6 +42,6 @@ Menschen sind Gewohnheitstiere und wollen, dass sich nichts verändert. Ein Füh
 
 
 
-_Disclaimer_
+_Disclaimer_: Ich habe die letzten anderthalb Jahrzehnte in der Digitalbranche verbracht. Das hat meine Sicht leicht beeinflusst und der Artikel erhebt weder Anspruch auf Vollständigkeit, noch auf universale Gültigkeit. 
 
-Ich habe die letzten anderthalb Jahrzehnte in der Digitalbranche verbracht. Das hat meine Sicht leicht beeinflusst und der Artikel erhebt weder Anspruch auf Vollständigkeit, noch auf universale Gültigkeit. 
+Die Bilder sind alle von [Unsplash](https://unsplash.com/collections/790798/storm).
