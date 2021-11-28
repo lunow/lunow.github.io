@@ -13,7 +13,7 @@ You need a few things to start:
 - Clone Repository
 - Run `bower install` inside the cloned folder
 - Run `sass --watch css/sass:css/compiled`
-- Run `jekyll serve --watch` to start the Jekyll Server and let it watch for changes while developing
+- Run `jekyll serve --watch` to start the Jekyll Server and let it watch for changes while developing (if that is not working, run `bundle exec jekyll serve --watch`)
 - Visit the Blog in the browser http://localhost:4000/
 
 

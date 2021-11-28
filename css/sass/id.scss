@@ -238,6 +238,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 			}
 		}
 
+		.podcast {
+			float: left;
+			width: 100%;
+			background: #e9dfdd;
+			padding: 1vw;
+			margin:1vh 0 3vh 0;
+
+			@include respond-to(phone) {
+				padding: 2vw;
+			}
+
+			img {
+				width: 15vw;
+				float:left;
+				margin:0 1vw 0 0;
+
+				@include respond-to(phone) {
+					box-sizing: content-box;
+					float: none;
+					width: 50%;
+					margin: 0 0 2vw 0;
+				}
+			}
+		}
+
 		h2, h3, h4, h5 {
 			font-weight:700;
 			margin-top:40px;
@@ -380,6 +405,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	ul {
 		margin-top:10px;
 	}
+
+	img {
+		width: 100%;
+		margin-bottom: 5px;
+	}
 }
 
 .pagination {
@@ -429,6 +459,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 				font-weight:600;
 				color:black;
 			}
+		}
+	}
+}
+
+.footer {
+	.podcast {
+		img {
+			width: 25%;
+			float: left;
+			padding-right: 10px;
 		}
 	}
 }
